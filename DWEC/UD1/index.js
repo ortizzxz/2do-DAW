@@ -1,1 +1,2 @@
-document.write('esto es JavaScript');
+document.write("Parrafo uno");
+document.write("<p>Parrafo dos</p>");
