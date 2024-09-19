@@ -108,3 +108,51 @@
 // }else {
 //     document.write('No aprobado');
 // }
+
+{/* SWITCH */}
+// //3 1 
+// var mes = prompt('Diga un mes');
+
+// switch(mes)
+// {
+//     case('Enero' || 'Marzo' || 'Mayo' || 'Julio' || 'Agosto' || 'Octubre' || 'Diciembre'):
+//         document.write('El mes tiene 31 días');
+//         break;
+//     case('Febrero'):
+//         document.write('El mes tiene 28 días');
+//         break;
+//     case('Abril' || 'Junio' || 'Septiembre' || 'Noviembre'):
+//         document.write('El mes tiene 28 días');
+//         break;
+//     default:
+//         break;
+// };
+
+// // 3 2 
+// var operacion = prompt('Seleccione una operacion (+ - * /)');
+// var a = parseInt(prompt('Numero 1'));
+// var b = parseInt(prompt('Numero 2'));
+
+// switch(operacion)
+// {
+//     case('+'):
+//         document.write(a + ' + ' + b + ' = ' + (a+b));
+//         break;
+//     case('-'):
+//         document.write(a + ' - ' + b + ' = ' + (a-b));
+//         break;
+//     case('*'):
+//         document.write(a + ' * ' + b + ' = ' + (a*b));
+//         break;
+//     case('/'):
+//         if(b === 0){ 
+//             document.write('no se puede dividir entre 0');
+//         }else{
+//             document.write(a + ' / ' + b + ' = ' + (a/b));
+//         }
+//         break;
+//     default:
+//             console.log('Default');
+//         break;
+// };
+
