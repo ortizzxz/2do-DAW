@@ -4,13 +4,11 @@
 // var numero = prompt('Indique un numero');
 
 // document.write(( numero % 2 == 0 ? 'Par' : 'Impar'));
-// document.write('<br />')
 
 // // ej 1 2 
 // var edad = prompt('Indique una edad');
 
 // document.write(( edad >= 18 ? 'Mayor de Edad' : 'Menor de edad'));
-// document.write('<br />')
 
 // // 1 3 
 // var edad2 = prompt('Indique una edad');
@@ -21,7 +19,7 @@
 // // 1 4 
 // var numero = prompt('Indique un numero');
 // if(numero >= 100){
-//     descuento = numero * 0.15;
+//     let descuento = numero * 0.15;
 //     numero = numero - descuento;
 //     document.write(numero);
 // }else{
@@ -128,7 +126,7 @@
 //         break;
 // };
 
-// // 3 2 
+// // 3 3
 // var operacion = prompt('Seleccione una operacion (+ - * /)');
 // var a = parseInt(prompt('Numero 1'));
 // var b = parseInt(prompt('Numero 2'));
