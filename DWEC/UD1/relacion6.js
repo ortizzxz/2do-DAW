@@ -54,17 +54,18 @@
 //     document.write('<H' + i + '>' + 'Cabecera H' + i + '<H' + i + '/>')
 // }
 
-// 9
-var col = parseInt(prompt('Columnas'));
-var alt = parseInt(prompt('Altura'));
-var anc = parseInt(prompt('Anchura'));
+// // 9
+// var col = parseInt(prompt('Columnas'));
+// var alt = parseInt(prompt('Altura'));
+// var anc = parseInt(prompt('Anchura'));
 
-document.write('<table border="0" cellspacing="2" bgcolor="black" width="200" >');
-document.write('<tr bgcolor="white" height="' + alt +  '" >');
+// document.write('<table border="0" cellspacing="2" bgcolor="black" width="200" >');
+// document.write('<tr bgcolor="white" height="' + alt +  '" >');
 
-for ( let i = 0; i < col; i++){
-    document.write('<td width="' + anc + '">&nbsp;</td>');
-}
+// for ( let i = 0; i < col; i++){
+//     document.write('<td width="' + anc + '">&nbsp;</td>');
+// }
 
-document.write('</tr>');
-document.write('</table>');
+// document.write('</tr>');
+// document.write('</table>');
+
