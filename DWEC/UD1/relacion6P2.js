@@ -50,24 +50,24 @@
 // document.write('</table>');
 
 // 4 19 
-// let area = parseInt(prompt('Indique medida'));
+let area = parseInt(prompt('Indique medida'));
 
-// document.write('<table border="0" cellspacing="2" bgcolor="black" >');
+document.write('<table border="0" cellspacing="2" bgcolor="black" >');
 
-// for ( let i = 0; i < 8; i++){
-//     document.write('<tr back height="' + area  + '" >');
+for ( let i = 0; i < 8; i++){
+    document.write('<tr back height="' + area  + '" >');
 
-//     for(let a = 0; a < 8; a++){
-//         if(i%2==0){
-//             if((a%2==0) ? document.write('<td bgcolor="white" width="' + area + '">&nbsp;</td>') 
-//                         : document.write('<td  bgcolor="black" width="' + area + '">&nbsp;</td>'));
-//         }else{
-//             if((a%2==0) ? document.write('<td bgcolor="black" width="' + area + '">&nbsp;</td>') 
-//                         : document.write('<td  bgcolor="white" width="' + area + '">&nbsp;</td>'));
-//         }
+    for(let a = 0; a < 8; a++){
+        if(i%2==0){
+            if((a%2==0) ? document.write('<td bgcolor="white" width="' + area + '">&nbsp;</td>') 
+                        : document.write('<td  bgcolor="black" width="' + area + '">&nbsp;</td>'));
+        }else{
+            if((a%2==0) ? document.write('<td bgcolor="black" width="' + area + '">&nbsp;</td>') 
+                        : document.write('<td  bgcolor="white" width="' + area + '">&nbsp;</td>'));
+        }
         
-//     }
+    }
 
-//     document.write('</tr>');
-// }
-// document.write('</table>');
+    document.write('</tr>');
+}
+document.write('</table>');
