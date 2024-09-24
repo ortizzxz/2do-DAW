@@ -9,9 +9,8 @@
 // 2
 // let num = parseInt(prompt('Ingrese un numero'));
 
-// for(let i = 1; i <= num; i++){
+// for(let i = 1; i <= num; i+2){
 //     document.write(  i + '<br /> ');
-//     i++;
 // }
 
 // 3
@@ -40,17 +39,14 @@
 // let n = 0;
 // let m = 0;
 // let suma = 0;
-// let mayor; 
 
 // while(n == m){
 //     n = parseInt(prompt('Ingrese un numero'));
 //     m = prompt(('Ingrese otro numero'));
 // }
 
-// if (( m > n) ? mayor = m : mayor = n);
-
 // for ( let i = n; i <= m; i++){
-//     if (i%2 == 0){
+//     if ( !(i%2) ){
 //         suma += i;
 //     }
 // }
