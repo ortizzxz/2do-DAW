@@ -41,10 +41,11 @@
 // setInterval(contador, detener);
 
 var n = 60;
+const h = document.getElementById("contador");
 
 function contador() {
     if (n >= 0) {
-        console.log(n);
+        h.innerHTML = n;
         n--;
         setTimeout(contador, 1000);
     }
