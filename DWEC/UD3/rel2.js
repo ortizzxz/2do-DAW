@@ -108,3 +108,12 @@ function showInformation(str){
 
 
 // 3 
+function isPalindromo(str){
+    let rightToLeft = invierteCadena(str);
+    let r = "";
+
+    if(( rightToLeft == str ) ? r =  "Palindromo" : r = "No Palindromo" );
+    return r;
+}
+
+document.write(isPalindromo("olao"));
