@@ -78,4 +78,33 @@ function cadenaBienFormada(cad_arg){
     return cadena;
 }
 
-document.write(cadenaBienFormada("HOLAaaa"));
+// document.write(cadenaBienFormada("HOLAaaa"));
+
+// 2 
+function showInformation(str){
+    let allM = true;
+    let allL = true;
+
+    let l = str.length;
+
+    for(let i = 0; i < l; i++){
+        if(str[i] != str[i].toLowerCase() ){
+            allL = false;
+        } else if(str[i] != str[i].toUpperCase()){
+            allM = false;
+        }
+    }
+
+    if(allM){
+        return 'Todas Mayúsculas';
+    } else if (allL){
+        return 'Todas Minúsculas';
+    }else{
+        return 'Combinación de ambas';
+    }
+}
+
+// document.write(showInformation("hoLa"));
+
+
+// 3 
