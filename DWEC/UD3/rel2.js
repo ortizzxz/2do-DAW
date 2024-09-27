@@ -116,4 +116,35 @@ function isPalindromo(str){
     return r;
 }
 
-document.write(isPalindromo("olao"));
+// document.write(isPalindromo("olao"));
+
+// 9
+function drawWord(str){
+    let l = str.length;
+    let iStr = invierteCadena(str);
+
+    for ( let i = 0; i < l; i++){
+        document.write(str[i] + ' ');
+    }
+
+    document.write('<br/>');
+    
+    for (let i = 1; i < l - 1; i++) {
+        
+        document.write(str[i]);
+
+        for (let j = 0; j < l - 2; j++) {
+            document.write('&nbsp;&nbsp;&nbsp;');
+        }
+        
+        document.write(str[l - i - 1]);
+        document.write('<br/>');
+    }
+
+    for ( let i = 0; i < l; i++){
+        document.write(iStr[i] + ' ');
+    }
+
+}
+
+drawWord("ORTIZ");
