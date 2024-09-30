@@ -27,12 +27,22 @@ document.write("<table border='1'>");
     //     document.write("</tr>");
     // });
 
-    for(prop in windowP){
+    // for(prop in navigator){
+    //     document.write("<tr>");
+    //     document.write("<td>" + prop + "</td>");
+    //     document.write("<td>" + navigator[prop] + "</td>");
+    //     document.write("</tr>");
+    // }
+
+    for(prop in screen){
         document.write("<tr>");
         document.write("<td>" + prop + "</td>");
-        document.write("<td>" + windowP[prop] + "</td>");
+        document.write("<td>" + screen[prop] + "</td>");
         document.write("</tr>");
     }
 
 
 document.write("</table>");
+
+// ws 6: (2c 2d 2e 2f)
+// 2c 2d 2e 2f 
