@@ -28,14 +28,14 @@
 // }
 
 
-// // DADOS
-// $nR = rand(1, 6);
-// $nR2 = rand(1, 6);
-// $mayor = 0;
+// DADOS
+$nR = rand(1, 6);
+$nR2 = rand(1, 6);
+$mayor = 0;
 
-// if(($nR > $nR2) ? $mayor = $nR : $mayor = $nR2);
+if(($nR > $nR2) ? $mayor = $nR : $mayor = $nR2);
 
-// echo("Dado 1: $nR <br/> Dado 2: $nR2 <br/> El mayor es: $mayor");
+echo("Dado 1: $nR <br/> Dado 2: $nR2 <br/> El mayor es: $mayor");
 
 // binario
 echo "<table border='1'>";
