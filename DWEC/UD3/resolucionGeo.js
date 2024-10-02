@@ -83,22 +83,32 @@ var distanciaTotal =0;
 
 function obtenerPosicionYCalcularDistancia() {
 
-    navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.watchPosition(
         function(pos) {
 
+            console.log('posicion nueva');
+            
             latPosAnt = latPosAct;
             longPosAnt = longPosAct;
-
+            
             latPosAct = pos.coords.latitude;
             longPosAct = pos.coords.longitude;
 
-            const lat2 = latPosAnt;
-            const lon2 = longPosAnt;
-            const lat1 = latPosAct;
-            const lon1 = longPosAct;
+            console.log("posicion nueva:", latPosAct, longPosAct);
+            
+            if (latPosAnt === 0 && longPosAnt === 0) {
+                latPosAnt = latPosAct;
+                longPosAnt = longPosAct;
+                return;
+            }
+
+            const lat1 = latPosAnt;
+            const lon1 = longPosAnt;
+            const lat2 = latPosAct;
+            const lon2 = longPosAct;
 
             distanciaTotal += calcDistancia(lat1, lon1, lat2, lon2);
-            document.write("La distancia es: " + distanciaTotal.toFixed(2) + " metros");
+            document.getElementById('result').textContent = `La distancia es: ${distanciaTotal.toFixed(2)} metros`;        
         }
     );
 }
