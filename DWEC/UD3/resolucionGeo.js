@@ -48,69 +48,83 @@ Let's try to use the geolocation information with the API of Here Maps.
 
 
 // 2 
-function muestraPosicionMejorada(pos) {
-    let lat = pos.coords.latitude;
-    let lon = pos.coords.longitude;
+// function muestraPosicionMejorada(pos) {
+//     let lat = pos.coords.latitude;
+//     let lon = pos.coords.longitude;
 
-    var map = L.map('map').setView([lat, lon], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+//     var map = L.map('map').setView([lat, lon], 13);
+//     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         maxZoom: 19,
+//         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//     }).addTo(map);
 
-    var marker = L.marker([lat, lon]).addTo(map);
+//     var marker = L.marker([lat, lon]).addTo(map);   
 
+// }
+
+// navigator.geolocation.getCurrentPosition(muestraPosicionMejorada);
+
+
+function calcDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371e3; // radio de la tierra en metros
+    const l1 = lat1 * Math.PI / 180;
+    const l2 = lat2 * Math.PI / 180;
+    const la1 = (lat2 - lat1) * Math.PI / 180;
+    const la2 = (lon2 - lon1) * Math.PI / 180;
+
+    const a = Math.sin(la1 / 2) * Math.sin(la1 / 2) + Math.cos(l1) * Math.cos(l2) * Math.sin(la2 / 2) * Math.sin(la2 / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return R * c; // distancia en metros 
 }
 
-navigator.geolocation.getCurrentPosition(muestraPosicionMejorada);
 
-// function calcDistancia(lat1, lon1, lat2, lon2) {
-//     const R = 6371e3; // radio de la tierra en metros
-//     const l1 = lat1 * Math.PI / 180;
-//     const l2 = lat2 * Math.PI / 180;
-//     const la1 = (lat2 - lat1) * Math.PI / 180;
-//     const la2 = (lon2 - lon1) * Math.PI / 180;
+var latPosAct = 0, latPosAnt = 0, longPosAct = 0, longPosAnt = 0;
+var distanciaTotal = 0;
 
-//     const a = Math.sin(la1 / 2) * Math.sin(la1 / 2) + Math.cos(l1) * Math.cos(l2) * Math.sin(la2 / 2) * Math.sin(la2 / 2);
-//     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+function obtenerPosicionYCalcularDistancia() {
 
-//     return R * c; // distancia en metros 
-// }
+    navigator.geolocation.watchPosition(
+        function (pos) {
+            latPosAnt = latPosAct;
+            longPosAnt = longPosAct;
+
+            latPosAct = pos.coords.latitude;
+            longPosAct = pos.coords.longitude;
+
+            var map = L.map('map').setView([latPosAct, longPosAct], 13);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            var marker = L.marker([latPosAct, longPosAct]).addTo(map);   
 
 
-// var latPosAct = 0, latPosAnt = 0, longPosAct = 0, longPosAnt = 0;
-// var distanciaTotal =0;
 
-// function obtenerPosicionYCalcularDistancia() {
+            console.log('posicion nueva');
 
-//     navigator.geolocation.watchPosition(
-//         function(pos) {
 
-//             console.log('posicion nueva');
-            
-//             latPosAnt = latPosAct;
-//             longPosAnt = longPosAct;
-            
-//             latPosAct = pos.coords.latitude;
-//             longPosAct = pos.coords.longitude;
+            console.log("posicion nueva:", latPosAct, longPosAct);
 
-//             console.log("posicion nueva:", latPosAct, longPosAct);
-            
-//             if (latPosAnt === 0 && longPosAnt === 0) {
-//                 latPosAnt = latPosAct;
-//                 longPosAnt = longPosAct;
-//                 return;
-//             }
+            if (latPosAnt === 0 && longPosAnt === 0) {
+                latPosAnt = latPosAct;
+                longPosAnt = longPosAct;
+                return;
+            }
 
-//             const lat1 = latPosAnt;
-//             const lon1 = longPosAnt;
-//             const lat2 = latPosAct;
-//             const lon2 = longPosAct;
+            const lat1 = latPosAnt;
+            const lon1 = longPosAnt;
+            const lat2 = latPosAct;
+            const lon2 = longPosAct;
 
-//             distanciaTotal += calcDistancia(lat1, lon1, lat2, lon2);
-//             document.getElementById('result').textContent = `La distancia es: ${distanciaTotal.toFixed(2)} metros`;        
-//         }
-//     );
-// }
+            distanciaTotal += calcDistancia(lat1, lon1, lat2, lon2);
+            document.getElementById('result').textContent = `La distancia es: ${distanciaTotal.toFixed(2)} metros`;
 
-// obtenerPosicionYCalcularDistancia();
+
+
+        }
+    );
+}
+
+obtenerPosicionYCalcularDistancia();

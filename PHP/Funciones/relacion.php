@@ -47,8 +47,38 @@ function calculadora($n1, $n2, $operacion){
     }
 }
 
-calculadora($_GET['n1'], $_GET['n2'], $_GET['action']);
+// calculadora($_GET['n1'], $_GET['n2'], $_GET['action']);
 
 //  3
+/*Escribe una función que reciba un argumento.
 
+Dicha función comprobará:
+Si el argumento recibido es una cadena de caracteres:
+en dicho caso, verificará si está vacía y si es así devolverá:   "Este es el relleno porque estaba vacía"
+Si tiene contenido, devolverá la cadena recibida en mayúscula.
+Si el argumento no es un string devolverá el argumento recibido más el mensaje “no es una cadena de caracteres”. */
+
+function devuelveString($str){
+    $ext = "";
+    if( (isset($str) && $str !== '')  ? $ext = strtoupper($str) : $ext = 'Este es el relleno porque estaba vacía');
+    return $ext;
+}
+
+// echo devuelveString($_GET['st']);
+
+// 4 Potencias 
+/*Escribe una función para calcular potencias. La función recibirá como argumentos la base y el exponente. 
+El exponente es opcional y tiene por defecto el valor 2 */
+
+function potencias($base, $exponente = 2){
+    $valor = 0;
+
+    for ($i = 0; $i < $exponente; $i++){
+        $valor += $base * $base;
+    }
+
+    return $valor;
+}
+
+echo potencias(2, 5);
 ?>
