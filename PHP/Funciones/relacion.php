@@ -64,7 +64,7 @@ function devuelveString($str){
     return $ext;
 }
 
-echo devuelveString($_GET['st']);
+// echo devuelveString($_GET['st']);
 
 // 4 Potencias 
 /*Escribe una función para calcular potencias. La función recibirá como argumentos la base y el exponente. 
@@ -91,27 +91,29 @@ function potencias($base, $exponente = 2){
 
 // echo potencias(2, 0);
 
-// function fechaHoy(){
-//     date_default_timezone_set('Europe/Madrid');
-//     return  date('d-m-Y');
-// }
+function fechaHoy(){
+    date_default_timezone_set('Europe/Madrid');
+    setlocale(LC_TIME, ES);
+    $fecha = strftime("%A, %d de %B de %Y");
+    return  $f;
+}
 
-// function fechaEspanol($fecha) {
-//     $fecha = substr($fecha, 0, 10);
-//     $numeroDia = date('d', strtotime($fecha));
-//     $dia = date('l', strtotime($fecha));
-//     $mes = date('F', strtotime($fecha));
-//     $anio = date('Y', strtotime($fecha));
-//     $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
-//     $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-//     $nombredia = str_replace($dias_EN, $dias_ES, $dia);
-//     $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-//     $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-//     $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
-//     return $nombredia." ".$numeroDia." de ".$nombreMes." de ".$anio;
-//   }
 
-// echo fechaEspanol(fechaHoy());
+// fact n 
+function factorialN($n){
+    $r = 1;
+    if($n <= 0){
+        throw Exception("error");
+    }
+    for($i = $n; $i > 0; $i--)  {
+        $r *= $i;
+    }
+
+    return $r;
+}
+
+echo factorialN(-2);
+
 
 
 ?>
