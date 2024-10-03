@@ -81,50 +81,56 @@ function calcDistancia(lat1, lon1, lat2, lon2) {
 
 var latPosAct = 0, latPosAnt = 0, longPosAct = 0, longPosAnt = 0;
 var distanciaTotal = 0;
+var route = [];
+
+function initializeMap() {
+    map = L.map('map').setView([0, 0], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    circle = L.circle([0, 0], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 1
+    }).addTo(map);
+
+    line = L.polyline(route, { color: 'red' }).addTo(map);
+}
+
+
+function updatePosition(pos) {
+    latPosAnt = latPosAct;
+    longPosAnt = longPosAct;
+
+    latPosAct = pos.coords.latitude;
+    longPosAct = pos.coords.longitude;
+
+    if (map) {
+        route.push([latPosAct, longPosAct]);
+        map.setView([latPosAct, longPosAct], 13);
+        circle.setLatLng([latPosAct, longPosAct]);
+        line.setLatLngs(route);
+    }
+
+    console.log('posicion nueva:', latPosAct, longPosAct);
+
+    if (latPosAnt === 0 && longPosAnt === 0) {
+        latPosAnt = latPosAct;
+        longPosAnt = longPosAct;
+        return;
+    }
+
+    distanciaTotal += calcDistancia(latPosAnt, longPosAnt, latPosAct, longPosAct);
+    document.getElementById('result').textContent = `La distancia es: ${distanciaTotal.toFixed(2)} metros`;
+}
+
 
 function obtenerPosicionYCalcularDistancia() {
-
-    navigator.geolocation.watchPosition(
-        function (pos) {
-            latPosAnt = latPosAct;
-            longPosAnt = longPosAct;
-
-            latPosAct = pos.coords.latitude;
-            longPosAct = pos.coords.longitude;
-
-            var map = L.map('map').setView([latPosAct, longPosAct], 13);
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-
-            var marker = L.marker([latPosAct, longPosAct]).addTo(map);   
-
-
-
-            console.log('posicion nueva');
-
-
-            console.log("posicion nueva:", latPosAct, longPosAct);
-
-            if (latPosAnt === 0 && longPosAnt === 0) {
-                latPosAnt = latPosAct;
-                longPosAnt = longPosAct;
-                return;
-            }
-
-            const lat1 = latPosAnt;
-            const lon1 = longPosAnt;
-            const lat2 = latPosAct;
-            const lon2 = longPosAct;
-
-            distanciaTotal += calcDistancia(lat1, lon1, lat2, lon2);
-            document.getElementById('result').textContent = `La distancia es: ${distanciaTotal.toFixed(2)} metros`;
-
-
-
-        }
-    );
+    initializeMap();
+    navigator.geolocation.watchPosition(updatePosition);
 }
 
 obtenerPosicionYCalcularDistancia();
