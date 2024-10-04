@@ -1,5 +1,7 @@
 <?php
-/* Funcion para pintar una tabla de ajedrez */
+/* Funcion para pintar una tabla de ajedrez por pantalla haciendo uso de las imagenes
+ * contenidas en el fichero fichasAjedres/
+*/
 function creaTable(){ 
     
     $piezasBlancas = array("torreb","caballob","alfilb","reinab","reyb","alfilb","caballob","torreb");
@@ -14,7 +16,7 @@ function creaTable(){
             $class = ($i + $a) % 2 == 0 ? 'blanca' : 'gris'; // nFila + nColummna / 2 => posicion 
             
             echo "<td class='$class'>";
-
+            
             if($i == 0){
                 echo "<img src='./fichasAjedrez/{$piezasNegras[$a]}.png'>";
             } else if($i == 1){
