@@ -1,0 +1,99 @@
+<?php
+/* 1. Ejercicio 1
+Escribe un script que almacene un array de 8 números enteros:
+
+a.      recorrerá el array y lo mostrará
+
+b.       lo ordenará y lo mostrará
+
+c.       mostrará su longitud
+
+d.       buscará un elemento dentro del array
+
+e.      buscará un elemento dentro del array, pero por el parámetro que llegue a la URL
+
+Para mostrar los elementos del array en cada uno de los apartados se creará una función llamada mostrarArray(). */
+
+$a = [12, 234, 24, 56, 231, 3, 5, 100];
+
+function mostrar($a){
+    foreach($a as $x){
+        echo "$x <br />";
+    }
+}
+
+asort($a);
+
+// mostrarlo ordenado
+// mostrar($a);
+
+// echo count($a);
+
+// 
+function buscarElemento($elemento){
+    $a = [12, 234, 24, 56, 231, 3, 5, 100];
+
+    if(isset($_GET['elemento'])){
+        $elemento = $_GET['elemento'];
+
+        foreach($a as $x){
+            if($x == $elemento){
+                return "El elemento existe en el array";
+            }
+        }
+
+        return "El elemento no existe en el array";
+    }
+}
+
+// echo (buscarElemento($_GET['elemento']));
+
+/* 2. Ejercicio 2
+Crea un script que añada valores a un array mientras que su longitud sea menor que 120.
+
+Después mostrará la información del array por pantalla */
+
+$s = "asojdjsaasldkbasdiubasdnasodnasiubdasdja";
+
+while(strlen($s) < 120){
+    $s .= "p";
+}
+
+// echo $s;
+
+/* 3. Ejercicio 3
+Escribe un script que rellene un array con valores aleatorios (0,1) y lo muestre. A continuación, calcularemos su 
+complementario y también la mostraremos.
+
+Por ejemplo:
+1 1 1 0 0 0 
+0 0 0 1 1 1 
+*/
+function randomBi(){
+    $a = "";
+    $b = "";
+
+    for ($i = 0; $i < 7; $i++){
+        $a .= rand(0, 1);
+    }
+
+    for ($i = 0; $i < 7; $i++){
+        if ($a[$i] == 1){
+            $b .= 0;
+        }else{
+            $b .= 1;
+        }
+    }
+}
+// echo "$a <br /> $bs";
+
+/* 
+Escriba un script PHP que:
+
+Guarde en un array 20 valores aleatorios entre 0 y 100.
+En un segundo array, llamado cuadrados, deberá almacenar los cuadrados de los valores que hay en el primer array.
+En un tercer array, llamado cubo, se deben almacenar los cubos de los valores que hay en el primer array.
+Por último, se mostrará el contenido de los tres arrays dispuesto en tres columnas paralelas. */
+
+
+?>  
