@@ -95,5 +95,33 @@ En un segundo array, llamado cuadrados, deberá almacenar los cuadrados de los v
 En un tercer array, llamado cubo, se deben almacenar los cubos de los valores que hay en el primer array.
 Por último, se mostrará el contenido de los tres arrays dispuesto en tres columnas paralelas. */
 
+$a = [];
 
+for ($i = 0; $i < 20; $i++){
+    $a[$i] = rand(0, 100);
+}
+
+$cuadrados = [];
+
+for ($i = 0; $i < count($a); $i++){
+    $cuadrados[$i] = ($a[$i] * $a[$i]); 
+}
+
+$cubos = [];
+
+for ($i = 0; $i < count($a); $i++){
+    $cubos[$i] = ($a[$i] * $a[$i] * $a[$i]); 
+}
+
+echo "<table border=1> <tr><td>Numero</td><td>Cuadrado</td><td>Cubo</td></tr>";
+
+for($i = 0; $i < count($a); $i++){
+    echo "<tr>";
+    echo "<td>$a[$i]</td>";
+    echo "<td>$cuadrados[$i]</td>";
+    echo "<td>$cubos[$i]</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
 ?>  
