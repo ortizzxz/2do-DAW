@@ -9,10 +9,7 @@
  * @example
  *  isOdd(3) // returns true
  */
-
-function isOdd(x){
-    return (x%2 !== 0);
-}
+const isOdd = (x) => (x%2 !== 0); 
 
 /**
  * @name inRange

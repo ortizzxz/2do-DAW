@@ -70,23 +70,25 @@ Por ejemplo:
 0 0 0 1 1 1 
 */
 function randomBi(){
-    $a = "";
-    $b = "";
+    $a = [];
+    $b = [];
 
     for ($i = 0; $i < 7; $i++){
-        $a .= rand(0, 1);
+        $a[$i] = rand(0, 1);
     }
 
     for ($i = 0; $i < 7; $i++){
         if ($a[$i] == 1){
-            $b .= 0;
+            $b[$i] = 0;
         }else{
-            $b .= 1;
+            $b[$i] = 1;
         }
     }
-}
-// echo "$a <br /> $bs";
 
+    echo implode($a). "</br>";
+    echo implode($b);
+}
+randomBi();
 /* 
 Escriba un script PHP que:
 
