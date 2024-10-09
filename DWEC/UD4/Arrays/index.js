@@ -97,3 +97,5 @@ num = num.sort( (a, b) => {
 });
 
 console.log(num);
+
+// 7 
