@@ -86,8 +86,6 @@ const paresImpares = () => {
 
 let num = paresImpares();
 
-console.log(num);
-
 num = num.sort( (a, b) => {
     if(a%2 == 0){
         return -1;
@@ -96,6 +94,64 @@ num = num.sort( (a, b) => {
     }
 });
 
-console.log(num);
 
 // 7 
+const creaArrayACero = () => {return Array(10).fill(0);}
+
+let arrayACero = creaArrayACero();
+
+const agregarUno = (array) => { 
+   return array.map( posicion =>  posicion + 1)
+}
+
+const muestraConEspacio = (array) => { 
+    array.forEach(elemento => {
+        return document.write(elemento + ' ');
+    })
+}
+
+// muestraConEspacio(arrayACero);  
+// document.write('<br />')
+// muestraConEspacio(agregarUno(arrayACero));  
+
+// 8 
+
+function lanzamiento36000(){
+    let caras = [1, 2, 3, 4, 5, 6];
+    
+    let combinacion = Array.from(
+        {length: 6}, () => Array(6).fill(0)
+    );
+
+    for (let i = 0; i < 36000; i++){
+        let dado1 = Math.floor(Math.random () * (caras.length) + 1);
+        let dado2 = Math.floor(Math.random () * (caras.length) + 1);
+        
+        combinacion[dado1 - 1][dado2 - 1]++;
+
+    }
+
+    console.table(combinacion);
+    
+    document.write('<table border=1>');
+    document.write('<tr><td> Indice </td>');
+
+    for(let i = 1; i < 7; i++){
+        document.write('<th> ' + i + ' </th>')
+    }
+
+    for (let i = 0; i < combinacion.length; i++){
+        document.write('<tr>');
+        document.write('<th>' + (i+1) + '</th>');
+
+        for(let k = 0; k < combinacion.length; k++){
+            document.write('<td>' + combinacion[i][k] + '</td>')
+        }
+
+        document.write('</tr>')
+    }
+
+    document.write('</table>');
+}
+
+lanzamiento36000();
