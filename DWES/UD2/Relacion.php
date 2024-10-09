@@ -115,7 +115,7 @@ for ($i = 0; $i < count($a); $i++){
     $cubos[$i] = ($a[$i] * $a[$i] * $a[$i]); 
 }
 
-echo "<table border=1> <tr><td>Numero</td><td>Cuadrado</td><td>Cubo</td></tr>";
+echo "<table border=1><tr><td>Numero</td><td>Cuadrado</td><td>Cubo</td></tr>";
 
 for($i = 0; $i < count($a); $i++){
     echo "<tr>";

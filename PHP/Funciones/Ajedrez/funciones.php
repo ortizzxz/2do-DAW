@@ -7,33 +7,31 @@ function creaTable(){
     $piezasBlancas = array("torreb","caballob","alfilb","reinab","reyb","alfilb","caballob","torreb");
     $piezasNegras = array("torren","caballon","alfiln","reinan","reyn","alfiln","caballon","torren");
     
-    for($i = 0; $i < 8; $i++){
+    for($fila = 0; $fila < 8; $fila++){
         // bucle inicial para crear los tr donde $i => fila 
         echo '<tr>';
 
         // bucle indexado donde $a => columna
-        for($a = 0; $a < 8; $a++){
-            $class = ($i + $a) % 2 == 0 ? 'blanca' : 'gris'; // nFila + nColummna / 2 => posicion 
+        for($columna = 0; $columna  < 8; $columna ++){
+            $class = ($fila + $columna ) % 2 == 0 ? 'blanca' : 'gris'; // nFila + nColummna / 2 => posicion 
             
             echo "<td class='$class'>";
             
-            if($i == 0){
-                echo "<img src='./fichasAjedrez/{$piezasNegras[$a]}.png'>";
-            } else if($i == 1){
+            if($fila == 0){
+                echo "<img src='./fichasAjedrez/{$piezasNegras[$columna ]}.png'>";
+            } else if($fila == 1){
                 echo "<img src='./fichasAjedrez/peon-negro.png'>";
-            } else if($i == 6){
+            } else if($fila == 6){
                 echo "<img src='./fichasAjedrez/peon-blanco.png'>";
-            } else if($i == 7){
-                echo "<img src='./fichasAjedrez/{$piezasBlancas[$a]}.png'>";
+            } else if($fila == 7){
+                echo "<img src='./fichasAjedrez/{$piezasBlancas[$columna ]}.png'>";
             } else {
                 echo '&nbsp;';
             }
 
             echo '</td>';
         }
-
         echo '</tr>';
     }
-    
 }
 ?>  
