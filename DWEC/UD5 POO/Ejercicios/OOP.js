@@ -263,4 +263,4 @@ p = {
     catchPhrase: "I love OOP"
 }
 
-console.log(p.favLanguages.toString());
+console.log(p.favLanguages.toString);
