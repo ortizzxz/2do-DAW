@@ -130,6 +130,54 @@ function CuadradoyCubo(){
     echo "</table>";
 }
 
+function boletin(){
+    $notas = [
+        "Matematicas" => [6, 7, 8],
+        "Lengua" => [7, 6, 2],
+        "Fisica" => [8, 10, 9],
+        "Latin" => [3, 1, 4],
+        "Ingles" => [3, 2, 5],
+    ];
+
+
+    for ( $i = 1; $i <= 5; $i++ ){
+        echo "<td>";
+
+        if($i == 1){    
+            echo "Asignatura";
+        } else if ($i != 1 && $i != 5 ){
+            echo "Trimestre " . $i-1; 
+        }else{
+            echo "Media";
+        }
+        
+
+        echo "</td>";
+    }
+}
+
+
 
 ?>  
 
+
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Boletin de Notas</h1>
+        <table>
+            <?php boletin(); ?>
+        </table>
+    </body>
+</html>
