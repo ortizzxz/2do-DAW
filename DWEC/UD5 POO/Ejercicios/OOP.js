@@ -229,6 +229,7 @@ All the keys used to initialize instances of Lambdasian.
 previousBackground i.e. what the Student used to do before Lambda School
 className i.e. CS132
 favSubjects. i.e. an array of the student's favorite subjects ['HTML', 'CSS', 'JS']
+
 The constructor calls the parent constructor passing to it what it needs.
 The constructor should also initialize previousBackground, className and favSubjects properties on the instance.
 
@@ -247,20 +248,27 @@ class Student extends Lambdassian{
     }
 
     listsSubject(){
-        // array.toString()
-
+        return this.favSubjects.toString();
     }
+
+    PRAssignment(subject){
+        return ( this.name + " has submitted a PR for " + subject);
+    }
+
+    sprintChallenge(subject){
+        return ( this.name + " has begun Sprint Challenge on " + subject);
+    } 
 }
 
 p = {
     nombre: "Jesus",
     age: 21,
     location: "Granada",
-    specialty: "Informatica",
-    favLanguages: [
-        "java", "JS", "Perl"
-    ],
-    catchPhrase: "I love OOP"
+    previousBackground: "Janitor",
+    className: "CS132",
+    favSubjects: ['HTML', 'CSS', 'JS']
 }
 
-console.log(p.favLanguages.toString);
+jesus =  new Student(p);
+
+console.log(jesus.listsSubject());
