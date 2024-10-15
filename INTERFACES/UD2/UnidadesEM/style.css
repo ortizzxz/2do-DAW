@@ -1,0 +1,46 @@
+
+.seccion1 {
+    background-color: aqua;
+    font-size: 50px;
+}
+
+.seccion2 {
+    background-color: gold;
+    font-size: 0.5em;
+
+}
+
+.seccion3 {
+    background-color: rosybrown;
+    font-size: 0.25em;
+
+}
+
+.seccion4 {
+    background-color: brown;
+    font-size: 0.125em;
+
+}
+
+.sec1 {
+    background-color: aqua;
+    font-size: 1rem;
+}
+
+.sec2 {
+    background-color: gold;
+    font-size: 0.5rem;
+
+}
+
+.sec3 {
+    background-color: rosybrown;
+    font-size: 0.25rem;
+
+}
+
+.sec4 {
+    background-color: brown;
+    font-size: 0.125rem;
+
+}
