@@ -1,36 +1,5 @@
-// 1 y 2 
-
-/*
-1) Puzzle. Se desea implementar una web para la realizacion de puzzles. Un puzzle no es 
-mas   que   un   tablero   cuadrado   con   un   hueco   que   podemo  mover y que  permite
-reordenar las piezas. Se pide por tanto la implementacion de una clase que represente
-este juego teniendo en cuenta:
-
-1. La dimension puede variar, se escoge en la creacion
-
-2. El espacio en blanco solo se mueve arriba, abajo, izquierda, derecha, controlando
-por supuesto que sea un movimiento valido
-
-3. Debe llevarse un control del tiempo minimo para resolverlo, asi como el numero de 
-movimientos realizados.
-
-4. Los tableros se generan aleatoriamente
-
-5. Implementaras un metodo dibujar() que imprimira en pantalla el tablero para poder 
-ser probado
-*/
-
 class Puzzle {
     constructor(valueDimension, limiteMovimientos, limiteTiempoSeg) {
-
-        /* La función de mapeo (_, i) => ... se usa para cada fila, donde i es el índice de la fila. */
-
-        /* Dentro de cada fila, usamos otra función de mapeo (_, j) => i * valueDimension + j + 1 para generar valores progresivos:
-        i * valueDimension nos da el valor inicial de cada fila.
-        + j incrementa el valor en cada columna.
-        + 1 asegura que empecemos desde 1 en lugar de 0. */
-
-        /* Si quieres que los números sean consecutivos pero empezando desde 0, puedes simplemente quitar el + 1 en la función de mapeo */
 
         this.dimension = Array.from(
             { length: valueDimension },
@@ -41,15 +10,16 @@ class Puzzle {
         );
 
         this.dimension[valueDimension - 1][valueDimension - 1] = -1;
+
         this.limiteMovimientos = limiteMovimientos;
-        this.limiteTiempo = limiteTiempoSeg * 1000; // a ms
-        this.tiempoACabo = 0;
         this.movimientos = 0;
 
-    }
+        this.limiteTiempo = limiteTiempoSeg * 1000; // a ms
+        this.tiempoInicio = null;
+        this.tiempoACabo = 0;
 
-    mostrarEspacio() {
-        console.table(this.dimension);
+        this.acabarJuego = false;
+
     }
 
     desordenarPuzzle() {
@@ -70,162 +40,192 @@ class Puzzle {
 
     }
 
-    moverArriba() {
-        let posicionI = 0;
-        let posicionJ = 0;
+    buscarPosiciones() {
+        let posiciones = []
 
-        if (this.movimientos >= this.limiteMovimientos) {
-            console.log("Limite de movimientos Alcanzado");
-        } else {
-
-            for (let i = 0; i < this.dimension.length; i++) {
-                for (let j = 0; j < this.dimension.length; j++) {
-
-                    if (this.dimension[i][j] == -1) {
-                        posicionI = i;
-                        posicionJ = j;
-                    }
-
+        for (let i = 0; i < this.dimension.length; i++) {
+            for (let j = 0; j < this.dimension.length; j++) {
+                if (this.dimension[i][j] == -1) {
+                    posiciones.push(i);
+                    posiciones.push(j);
                 }
             }
+        }
 
-            if (posicionI > 0) {
+        return posiciones;
+    }
 
-                let temp = this.dimension[posicionI - 1][posicionJ];
+    iniciarJuego() {
+        this.tiempoInicio = Date.now();
+        this.acabarJuego = false;
+        this.tiempoACabo = 0;
+        this.movimientos = 0;
+        this.desordenarPuzzle();
+    }
 
-                this.dimension[posicionI - 1][posicionJ] = this.dimension[posicionI][posicionJ];
+    moverArriba() {
+        let p = this.buscarPosiciones();
+        let posicionI = p[0];
+        let posicionJ = p[1];
 
-                this.dimension[posicionI][posicionJ] = temp;
-
-                this.movimientos++;
-
-            } else {
-                console.log('No se puede mover arriba');
-            }
+        if (posicionI > 0) {
+            let temp = this.dimension[posicionI - 1][posicionJ];
+            this.dimension[posicionI - 1][posicionJ] = this.dimension[posicionI][posicionJ];
+            this.dimension[posicionI][posicionJ] = temp;
+            return true; // Movimiento válido
+        } else {
+            console.log('No se puede mover arriba');
+            return false; // Movimiento inválido
         }
     }
 
-
     moverAbajo() {
-        let posicionI = 0;
-        let posicionJ = 0;
+        let p = this.buscarPosiciones();
+        let posicionI = p[0];
+        let posicionJ = p[1];
 
-        if (this.movimientos >= this.limiteMovimientos) {
-            console.log("Limite de movimientos Alcanzado");
+        if (posicionI < 2) {
+            let temp = this.dimension[posicionI + 1][posicionJ];
+            this.dimension[posicionI + 1][posicionJ] = this.dimension[posicionI][posicionJ];
+            this.dimension[posicionI][posicionJ] = temp;
+            return true;
         } else {
-
-
-
-            for (let i = 0; i < this.dimension.length; i++) {
-                for (let j = 0; j < this.dimension.length; j++) {
-
-                    if (this.dimension[i][j] == -1) {
-                        posicionI = i;
-                        posicionJ = j;
-                    }
-
-                }
-            }
-
-            if (posicionI < 2) {
-
-                let temp = this.dimension[posicionI + 1][posicionJ];
-
-                this.dimension[posicionI + 1][posicionJ] = this.dimension[posicionI][posicionJ];
-
-                this.dimension[posicionI][posicionJ] = temp;
-
-                this.movimientos++;
-            } else {
-                console.log('No se puede mover abajo');
-            }
+            console.log('No se puede mover abajo');
+            return false;
         }
     }
 
     moverIzquierda() {
-        let posicionI = 0;
-        let posicionJ = 0;
+        let p = this.buscarPosiciones();
+        let posicionI = p[0];
+        let posicionJ = p[1];
 
-        if (this.movimientos >= this.limiteMovimientos) {
-            console.log("Limite de movimientos Alcanzado");
+        if (posicionJ > 0) {
+            let temp = this.dimension[posicionI][posicionJ - 1];
+            this.dimension[posicionI][posicionJ - 1] = this.dimension[posicionI][posicionJ];
+            this.dimension[posicionI][posicionJ] = temp;
+            return true;
         } else {
-
-            for (let i = 0; i < this.dimension.length; i++) {
-                for (let j = 0; j < this.dimension.length; j++) {
-
-                    if (this.dimension[i][j] == -1) {
-                        posicionI = i;
-                        posicionJ = j;
-                    }
-
-                }
-            }
-
-            if (posicionJ > 0) {
-
-                let temp = this.dimension[posicionI][posicionJ - 1];
-
-                this.dimension[posicionI][posicionJ - 1] = this.dimension[posicionI][posicionJ];
-
-                this.dimension[posicionI][posicionJ] = temp;
-
-                this.movimientos++;
-
-            } else {
-                console.log('No se puede mover a la izquierda');
-            }
+            console.log('No se puede mover a la izquierda');
+            return false;
         }
     }
 
     moverDerecha() {
-        let posicionI = 0;
-        let posicionJ = 0;
+        let p = this.buscarPosiciones();
+        let posicionI = p[0];
+        let posicionJ = p[1];
 
-        if (this.movimientos >= this.limiteMovimientos) {
-            console.log("Limite de movimientos Alcanzado");
-
+        if (posicionJ < 2) {
+            let temp = this.dimension[posicionI][posicionJ + 1];
+            this.dimension[posicionI][posicionJ + 1] = this.dimension[posicionI][posicionJ];
+            this.dimension[posicionI][posicionJ] = temp;
+            return true;
         } else {
-
-            for (let i = 0; i < this.dimension.length; i++) {
-                for (let j = 0; j < this.dimension.length; j++) {
-
-                    if (this.dimension[i][j] == -1) {
-                        posicionI = i;
-                        posicionJ = j;
-                    }
-
-                }
-            }
-
-            if (posicionJ < 2) {
-
-                let temp = this.dimension[posicionI][posicionJ + 1];
-
-                this.dimension[posicionI][posicionJ + 1] = this.dimension[posicionI][posicionJ];
-
-                this.dimension[posicionI][posicionJ] = temp;
-
-                this.movimientos++;
-
-            } else {
-                console.log('No se puede mover a la derecha');
-            }
+            console.log('No se puede mover a la derecha');
+            return false;
         }
     }
 
-    mostrarMovimientos() {
-        return this.movimientos;
+    mover(direccion) {
+        if (this.acabarJuego) {
+            console.log('El juego ha acabado');
+            return;
+        }
+
+        if (this.tiempoInicio == null) {
+            console.log('Por favor inicia el juego');
+            return;
+        }
+
+        this.actualizarTiempo();
+
+        if (this.tiempoACabo >= this.limiteTiempo) {
+            console.log('Tiempo alcanzado. Usted ha perdido');
+            this.acabarJuego = true;
+            return;
+        }
+
+        if (this.movimientos >= this.limiteMovimientos) {
+            console.log('Limite de movimientos alcanzado. Usted ha perdido');
+            this.acabarJuego = true;
+            return;
+        }
+
+        let movimientoValido = false;
+
+        switch (direccion) {
+            case 'arriba':
+                movimientoValido = this.moverArriba();
+                break;
+            case 'abajo':
+                movimientoValido = this.moverAbajo();
+                break;
+            case 'izquierda':
+                movimientoValido = this.moverIzquierda();
+                break;
+            case 'derecha':
+                movimientoValido = this.moverDerecha();
+                break;
+            default:
+                console.log('Dirección no válida');
+                return;
+        }
+
+        if (movimientoValido) {
+            this.movimientos++;
+            this.verificarVictoria();
+        }
+
     }
+
+    actualizarTiempo() {
+        if (this.tiempoInicio != null && !this.acabarJuego) {
+            this.tiempoACabo = Date.now() - this.tiempoInicio;
+        }
+    }
+
+    progresoPartida() {
+        this.actualizarTiempo();
+        return {
+            movimientos: this.movimientos,
+            tiempoTranscurrido: Math.floor(this.tiempoACabo / 1000), // Convertir a segundos
+            juegoTerminado: this.acabarJuego
+        };
+    }
+
+    verificarVictoria() {
+        let flatArray = this.dimension.flat();
+        for (let i = 0; i < flatArray.length - 1; i++) {
+            if (flatArray[i] !== i + 1) {
+                return; // No es victoria
+            }
+        }
+        console.log('¡Felicidades! Has resuelto el puzzle.');
+        this.juegoTerminado = true;
+    }
+
+    dibujar() {
+        console.table(this.dimension);
+    }
+
+    simularJuego(movimientos, tiempoEspera) {
+        this.iniciarJuego();
+        console.log("Inicio del juego:", this.progresoPartida());
+
+        setTimeout(() => {
+            for (let i = 0; i < movimientos; i++) {
+                const direcciones = ['arriba', 'abajo', 'izquierda', 'derecha'];
+                const direccionAleatoria = direcciones[Math.floor(Math.random() * direcciones.length)];
+                this.mover(direccionAleatoria);
+            }
+            console.log("Después de los movimientos:", this.progresoPartida());
+        }, tiempoEspera);
+    }
+
 }
 
-miPuzzle = new Puzzle(3, 2);
-miPuzzle.desordenarPuzzle();
-miPuzzle.mostrarEspacio();
-miPuzzle.moverDerecha();
-miPuzzle.moverIzquierda();
-miPuzzle.moverAbajo();
-miPuzzle.moverArriba();
-miPuzzle.mostrarEspacio();
-
-console.log(miPuzzle.mostrarMovimientos() + " MOVIMIENTOS");
+let miPuzzle = new Puzzle(3, 100, 60); // 3x3, 100 movimientos máx, 60 segundos máx
+miPuzzle.iniciarJuego();
+miPuzzle.simularJuego(5, 5000);
 
