@@ -5,6 +5,9 @@ $metodoAcceso = [
     "manolo" => "botella"
 ];
 
+$autenticado = false;
+
+
 if (isset($_POST['username']) && isset($_POST['password']) && 
    !empty($_POST['username']) && !empty($_POST['password'])){
 
@@ -14,10 +17,13 @@ if (isset($_POST['username']) && isset($_POST['password']) &&
 
     foreach($metodoAcceso as $usuario => $claveUsuario ){
         if ( ($usuario == $username && $password == $claveUsuario)){
-            header('Location: pagBienvenida.php');
-        }else{
-            echo "Error de autenticación";
+            header('Location: https://th.bing.com/th/id/OIP.RaWfNI33445ZRFboZVQDDQHaLH?rs=1&pid=ImgDetMain');
+            $autenticado = true;
         }
+    }
+
+    if(!$autenticado){
+        echo "Error de autenticación";
     }
 
 }else{
