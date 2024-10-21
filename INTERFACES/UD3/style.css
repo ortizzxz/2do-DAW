@@ -1,0 +1,84 @@
+* {
+    margin: 0px;
+}
+
+section {
+    font-size: 24px;
+}
+
+li {
+    font-size: 1em;
+}
+
+
+#first {
+    background-color: blue;
+    width: 250px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+#second {
+    border: 5px solid red;
+    width: 50px;
+    height: 200px;
+    border-radius: 100%;
+
+}
+
+#books {
+    font-family: 'Courier New', Courier, monospace;
+    color: brown;
+}
+
+ol.tercero li {
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: upper-latin;
+}
+
+ul.cuarto {
+    background-color: yellow;
+}
+
+ul.cuarto li {
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: square;
+    background-color: gray;
+}
+
+/*Act 4*/
+div{
+    background-color: gainsboro;
+}
+
+div * {
+    background-color: blue;
+    color: white;
+}
+
+div div div a {
+    background-color: red;
+    color: yellow;
+}
+
+#abuelo{
+    border: 1px solid blue;
+}
+
+#abuelo * {
+    border: 1px solid red;
+}
+
+.padre + p {
+    background-color: greenyellow;
+}
+
+.madre + p {
+    background-color: rgb(243, 58, 144);
+}
+
+[title]{
+    background-color:chartreuse;
+}
+
+
