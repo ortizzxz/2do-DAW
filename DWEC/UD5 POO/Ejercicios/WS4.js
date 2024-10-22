@@ -225,7 +225,7 @@ class Puzzle {
 
 }
 
-let miPuzzle = new Puzzle(3, 100, 60); // 3x3, 100 movimientos máx, 60 segundos máx
+let miPuzzle = new Puzzle(3, 100, 60); // 3x3, 100 movimientos max, 60 segundos max
 miPuzzle.iniciarJuego();
 miPuzzle.simularJuego(5, 5000);
 
