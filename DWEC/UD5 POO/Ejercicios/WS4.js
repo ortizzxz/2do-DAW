@@ -72,10 +72,10 @@ class Puzzle {
             let temp = this.dimension[posicionI - 1][posicionJ];
             this.dimension[posicionI - 1][posicionJ] = this.dimension[posicionI][posicionJ];
             this.dimension[posicionI][posicionJ] = temp;
-            return true; // Movimiento válido
+            return true; 
         } else {
             console.log('No se puede mover arriba');
-            return false; // Movimiento inválido
+            return false; 
         }
     }
 

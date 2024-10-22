@@ -39,7 +39,7 @@ class tresEnLinea {
             this.jugadaEfectiva = true;
 
             if (this.comprobarVictoria()) {
-                console.log(`¡Jugador ${jugador} ha ganado!`);
+                console.log("¡Jugador" + jugador + "ha ganado!");
                 this.seguirJugando = false;
             }
         } else {
