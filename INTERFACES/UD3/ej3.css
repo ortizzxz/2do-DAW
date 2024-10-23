@@ -1,0 +1,24 @@
+.testimonials__card {
+    position: relative; 
+}
+
+.testimonials__card--img{
+    width: fit-content;
+}
+
+
+.testimonials__card--content {
+    background-color: aqua;
+    opacity: 0.4;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    width: 24%; 
+    padding: 10px;
+    position: absolute;
+    top: 250px;
+    visibility: hidden;
+}
+
+.testimonials__card:hover .testimonials__card--content {
+    visibility: inherit;
+}
