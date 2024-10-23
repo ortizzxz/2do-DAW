@@ -1,25 +1,95 @@
 <?php
-// if(isset($_POST['username'], $_POST['password']))
+
+interface Operation{
+    public function execute($numberOne, $numberTwo);
+}
+
+function sanitizeNumber($number){
+    return filter_var($number,  FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+}
+
+function validateNumber($number){
+    return filter_var($number, FILTER_VALIDATE_FLOAT);
+}
+
+class Addition($numberOne, $numberTwo){
+    $numerOne = sanitizeNumber($numberOne);
+    $numberTwo = sanitizeNumber($numberTwo);
+
+    $isValidNumberOne = validateNumber($numberOne);
+    $isValidNumberTwo = validateNumber($numberTwo);
+
+    if($isValidNumberOne && $isValidNumberTwo){
+        echo ('<h1>' . $numberOne +  $numberTwo . '</h1>');
+    }else{
+        echo 'Introduzca valores correctos';
+    }
+}
+
+function substractTwoNums($numberOne, $numberTwo){
+    $numerOne = sanitizeNumber($numberOne);
+    $numberTwo = sanitizeNumber($numberTwo);
+
+    $isValidNumberOne = validateNumber($numberOne);
+    $isValidNumberTwo = validateNumber($numberTwo);
+
+    if($isValidNumberOne && $isValidNumberTwo){
+        echo ('<h1>' . $numberOne -  $numberTwo . '</h1>');
+    }else{
+        echo 'Introduzca valores correctos';
+    }
+}
+
+function multiplyTwoNums($numberOne, $numberTwo){
+    $numerOne = sanitizeNumber($numberOne);
+    $numberTwo = sanitizeNumber($numberTwo);
+
+    $isValidNumberOne = validateNumber($numberOne);
+    $isValidNumberTwo = validateNumber($numberTwo);
+
+    if($isValidNumberOne && $isValidNumberTwo){
+        echo ('<h1>' . $numberOne *  $numberTwo . '</h1>');
+    }else{
+        echo 'Introduzca valores correctos';
+    }
+}
+
+function divideTwoNums($numberOne, $numberTwo){
+    $numerOne = sanitizeNumber($numberOne);
+    $numberTwo = sanitizeNumber($numberTwo);
+
+    $isValidNumberOne = validateNumber($numberOne);
+    $isValidNumberTwo = validateNumber($numberTwo);
+
+    if($isValidNumberOne && $isValidNumberTwo){
+        echo ('<h1>' . $numberOne /  $numberTwo . '</h1>');
+    }else{
+        echo 'Introduzca valores correctos';
+    }
+}
+
 if(isset($_POST['num1'], $_POST['num2'])){
+
     $n1 = $_POST['num1'];
     $n2 = $_POST['num2'];
 
     switch($_POST['action']){
         case 's':
-            echo ('<h1>' .($n1 + $n2). '</h1>');
+            sumTwoNums($n1, $n2);
             break;
         case 'r':
-            echo ('<h1>' .($n1 - $n2). '</h1>');
+            substractTwoNums($n1, $n2);
             break;
         case 'm':
-            echo ('<h1>' .($n1 * $n2). '</h1>');
+            multiplyTwoNums($n1, $n2);
             break;
         case 'd':
-            echo ('<h1>' .($n1 / $n2). '</h1>');
+            divideTwoNums($n1, $n2);
             break;
         default:
             break;        
     }
+
 }
 ?>
 
