@@ -1,0 +1,59 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainContent, .resultados {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.calculator {
+    margin: 20px auto;
+    width: 50%;
+    padding: 10px;
+
+    text-align: center;
+
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0px 20px 0px;
+}
+
+
+#num1,
+#num2 {
+    width: 35%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+button{
+    padding: 10px;
+
+}
+
+.resultados{
+    border: 1px solid gray;
+    width: 50%;
+    margin: auto;
+    height: 50%;
+}
+
+.numeroResultado{
+    border: 1px solid black;
+    margin: 10% auto;
+    height: 35%;
+    width: 25%;
+    text-align: center;
+    font-size:xx-large;
+}

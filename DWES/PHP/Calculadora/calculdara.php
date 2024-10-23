@@ -35,10 +35,6 @@ class Division implements Operation
 {
     public function execute($numberOne, $numberTwo)
     {
-        if ($numberTwo == 0) {
-            throw new Exception("División por cero no permitida");
-        }
-
         return $numberOne / $numberTwo;
     }
 }
