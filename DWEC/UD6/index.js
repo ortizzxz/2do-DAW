@@ -1,3 +1,5 @@
+/* EVENT LISTENERS */
+
 const btn = document.getElementsByTagName('button');
 
 function random(number) {
@@ -11,3 +13,9 @@ btn[0].addEventListener('click', () => {
 
 btn[1].addEventListener('click', () => document.body.style.backgroundColor = "white");
 
+/* MOUSE OVER */
+
+btn[0].addEventListener('mouseover', () => {
+    const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+    document.body.style.backgroundColor = randomColor;
+});
