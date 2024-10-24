@@ -19,3 +19,9 @@ btn[0].addEventListener('mouseover', () => {
     const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     document.body.style.backgroundColor = randomColor;
 });
+
+/* MOUSE OUT*/
+
+btn[0].addEventListener('mouseout', () => {
+    document.body.style.backgroundColor = "white";
+});
