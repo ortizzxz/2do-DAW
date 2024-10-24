@@ -11,7 +11,11 @@ btn[0].addEventListener('click', () => {
     document.body.style.backgroundColor = randomColor;
 });
 
-btn[1].addEventListener('click', () => document.body.style.backgroundColor = "white");
+function changeBgWhite(){
+    document.body.style.backgroundColor = "white";
+}
+
+btn[1].addEventListener('click', changeBgWhite);
 
 /* MOUSE OVER */
 
@@ -25,3 +29,13 @@ btn[0].addEventListener('mouseover', () => {
 btn[0].addEventListener('mouseout', () => {
     document.body.style.backgroundColor = "white";
 });
+
+/* REMOVE LISTENER */
+
+btn[1].addEventListener('click', () => btn[1].removeEventListener("click", changeBgWhite));
+
+/* GET ELEMENT BY ID */
+
+const cajaTexto = document.getElementById('textBox');
+
+cajaTexto.addEventListener('keydown', (e) => console.log("Has escrito la letra " + e.key ));
