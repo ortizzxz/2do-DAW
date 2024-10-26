@@ -1,0 +1,41 @@
+.contenedorPrincipal {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div div {
+    border: 1px solid gray;
+    padding: 30px;
+    text-align: center;
+    margin: 3em;
+    width: 15em;
+    background-color: gray;
+    color: white;
+}
+
+.contenedorUno {
+    border-radius: 0px 0px 50% 0px;
+}
+
+.contenedorDos {
+    border-radius: 0px 0px 30% 0px;
+}
+
+.contenedorTres {
+    border-radius: 0 0 40px / 100%  0;
+
+
+}
+
+.contenedorCuatro {
+    border-radius: 35px 100px;
+}
+
+.contenedorCinco {
+}
+
+.contenedorSeis{
+    border-radius: 100%;
+    width: 100px;
+}
