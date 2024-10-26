@@ -1,70 +1,62 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Validación de campos
-    $tipo = $_POST['tipo'];
-    $zona = $_POST['zona'];
-    $direccion = $_POST['direccion'];
-    $dormitorios = (int)$_POST['dormitorios'];
-    $precio = (float)$_POST['precio'];
-    $tamano = (int)$_POST['tamano'];
-    $extras = isset($_POST['extras']) ? implode(', ', $_POST['extras']) : 'Ninguno';
-    $observaciones = $_POST['observaciones'];
 
-    // Validación y manejo de la foto
-    if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
-        if ($_FILES['foto']['size'] <= 100 * 1024) { // 100 KB
-            $fotoPath = 'fotos/' . basename($_FILES['foto']['name']);
-            if (!file_exists('fotos')) {
-                mkdir('fotos', 0777, true);
+class ProcesarVivienda {
+    private $validador;
+    private $almacenamiento;
+
+    public function __construct(ValidadorVivienda $validador, AlmacenamientoVivienda $almacenamiento) {
+        // Inyección de dependencias
+        $this->validador = $validador;
+        $this->almacenamiento = $almacenamiento;
+    }
+
+    public function procesarFormulario($datosFormulario, $archivoFoto) {
+        $errores = $this->validador->validar($datosFormulario);
+
+        if (empty($errores)) {
+            $vivienda = new Vivienda(
+                $datosFormulario['tipo'],
+                $datosFormulario['zona'],
+                $datosFormulario['direccion'],
+                (int)$datosFormulario['dormitorios'],
+                (float)$datosFormulario['precio'],
+                (int)$datosFormulario['tamano'],
+                isset($datosFormulario['extras']) ? $datosFormulario['extras'] : [],
+                $datosFormulario['observaciones']
+            );
+
+            // Guardar la vivienda
+            $this->almacenamiento->guardar($vivienda);
+
+            if ($archivoFoto && $archivoFoto['error'] == UPLOAD_ERR_OK) {
+                if ($archivoFoto['size'] <= 100 * 1024) { // 100 KB
+                    $fotoPath = 'fotos/' . basename($archivoFoto['name']);
+                    move_uploaded_file($archivoFoto['tmp_name'], $fotoPath);
+                    echo "<a href='$fotoPath' target='_blank'>Ver Foto</a><br>";
+                } else {
+                    echo "<p>Error: La foto excede el tamaño máximo permitido.</p>";
+                }
+            } else {
+                echo "<p>No se subió ninguna foto.</p>";
             }
-            move_uploaded_file($_FILES['foto']['tmp_name'], $fotoPath);
-            $fotoLink = "<a href='$fotoPath' target='_blank'>Ver Foto</a>";
+
+            // Mostrar resultados al usuario
+            echo "<h2>Vivienda registrada correctamente</h2>";
+            echo "<p>Tipo: " . htmlspecialchars($vivienda->getTipo()) . "</p>";
+            echo "<p>Zona: " . htmlspecialchars($vivienda->getZona()) . "</p>";
+            echo "<p>Dirección: " . htmlspecialchars($vivienda->getDireccion()) . "</p>";
+            echo "<p>Dormitorios: " . htmlspecialchars($vivienda->getDormitorios()) . "</p>";
+            echo "<p>Precio: $" . htmlspecialchars($vivienda->getPrecio()) . "</p>";
+            echo "<p>Tamaño: " . htmlspecialchars($vivienda->getTamano()) . "m²</p>";
+            echo "<p>Extras: " . htmlspecialchars(implode(', ', $vivienda->getExtras())) . "</p>";
+            echo "<p>Observaciones: " . htmlspecialchars($vivienda->getObservaciones()) . "</p>";
+
+            echo "<p>Beneficio estimado para la empresa: $" . htmlspecialchars($vivienda->calcularBeneficio()) . "</p>";
+
         } else {
-            die("Error: La foto excede el tamaño máximo permitido.");
+            foreach ($errores as $error) {
+                echo "<p>$error</p>";
+            }
         }
-    } else {
-        $fotoLink = "No se subió ninguna foto.";
     }
-
-    // Cálculo del beneficio
-    $porcentajeBeneficio = 0;
-    switch ($zona) {
-        case 'Centro':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.35 : 0.30;
-            break;
-        case 'Zaidín':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.28 : 0.25;
-            break;
-        case 'Chana':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.25 : 0.22;
-            break;
-        case 'Albaicín':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.35 : 0.20;
-            break;
-        case 'Sacromonte':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.25 : 0.22;
-            break;
-        case 'Realejo':
-            $porcentajeBeneficio = ($tamano > 100) ? 0.28 : 0.25;
-            break;
-    }
-    $beneficio = $precio * $porcentajeBeneficio;
-
-    // Almacenamiento de los datos
-    $dataLine = "$tipo, $zona, $direccion, $dormitorios, $precio, $tamano, $extras, \"$observaciones\", Beneficio: $beneficio\n";
-    file_put_contents('viviendas.txt', $dataLine, FILE_APPEND);
-
-    // Mostrar resultados
-    echo "<h2>Vivienda registrada correctamente</h2>";
-    echo "<p>Tipo: $tipo</p>";
-    echo "<p>Zona: $zona</p>";
-    echo "<p>Dirección: $direccion</p>";
-    echo "<p>Dormitorios: $dormitorios</p>";
-    echo "<p>Precio: $$precio</p>";
-    echo "<p>Tamaño: {$tamano}m²</p>";
-    echo "<p>Extras: $extras</p>";
-    echo "<p>Observaciones: $observaciones</p>";
-    echo "<p>$fotoLink</p>";
-    echo "<p>Beneficio estimado para la empresa: $$beneficio</p>";
 }
-?>
