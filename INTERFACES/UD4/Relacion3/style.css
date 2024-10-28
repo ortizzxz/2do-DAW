@@ -56,6 +56,10 @@ select {
 
 }
 
+#email{
+    width: 220px;
+}
+
 #tercerField {
     display: block;
 }

@@ -41,10 +41,10 @@
         <fieldset>
             <legend>¿Quien Eres?</legend>
             <label for="name">Nombre</label>
-            <input type="text" name="name" id="name" pattern="[A-Za-z]{3,}" title="El nombre de la ciudad debe ser valores válidos" required>
+            <input type="text" name="name" id="name" pattern="[A-Za-z ]{3,}" title="El nombre debe ser valores válidos" required>
 
             <label for="lastname">Apellidos</label>
-            <input type="text" name="lastname" id="lastname" pattern="[^0-9]" title="El nombre de la ciudad debe ser valores válidos">
+            <input type="text" name="lastname" id="lastname" pattern="[A-Za-z ]{5,}" title="El apellido debe ser valores válidos">
 
             <label for="email">Email</label>
             <input type="email" name="email" id="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Ingrese un email válido" placeholder="yourmail@mail.com">
@@ -57,7 +57,7 @@
         <fieldset>
             <legend>¿De Dónde Eres?</legend>
             <label for="city">Ciudad</label>
-            <input type="text" name="city" id="city" pattern="[^0-9]" title="El nombre de la ciudad debe ser valores válidos">
+            <input type="text" name="city" id="city" pattern="[A-Za-z ]{3,}" title="El nombre de la ciudad debe ser valores válidos">
 
             <label for="pc">Código Postal</label>
             <input type="text" name="pc" id="pc" pattern="[0-9]{5}" title="El código postal debe contener 5 valores numericos" placeholder="00000">
