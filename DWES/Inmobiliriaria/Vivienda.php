@@ -91,4 +91,32 @@ class Vivienda
 
         return $beneficio;
     }
+
+    public function obtenerDatosParaMostrar() {
+        return [
+            'Tipo' => $this->getTipo(),
+            'Zona' => $this->getZona(),
+            'Dirección' => $this->getDireccion(),
+            'Dormitorios' => $this->getDormitorios(),
+            'Precio' => '$' . $this->getPrecio(),
+            'Tamaño' => $this->getTamano() . 'm²',
+            'Extras' => implode(', ', $this->getExtras()),
+            'Observaciones' => $this->getObservaciones(),
+            'Beneficio estimado para la empresa' => '$' . $this->calcularBeneficio()
+        ];
+    }
+
+    public function obtenerDatosParaXML() {
+        return [
+            'tipo' => $this->getTipo(),
+            'zona' => $this->getZona(),
+            'direccion' => $this->getDireccion(),
+            'dormitorios' => $this->getDormitorios(),
+            'precio' => $this->getPrecio(),
+            'tamano' => $this->getTamano(),
+            'extras' => implode(', ', $this->getExtras()),
+            'observaciones' => $this->getObservaciones(),
+            'beneficio' => $this->calcularBeneficio()
+        ];
+    }
 }

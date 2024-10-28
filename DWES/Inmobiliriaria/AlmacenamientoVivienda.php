@@ -1,30 +1,37 @@
 <?php
-class AlmacenamientoVivienda{
+class AlmacenamientoVivienda
+{
     private $rutaArchivo;
 
-    public function __construct($rutaArchivo){
+    public function __construct($rutaArchivo)
+    {
         if (!file_exists(dirname($rutaArchivo))) {
             mkdir(dirname($rutaArchivo), 0777, true);
         }
         $this->rutaArchivo = $rutaArchivo;
     }
 
-    public function guardar(Vivienda $vivienda){
-        // Convertir el objeto Vivienda a una cadena de texto
-        $datos = sprintf(
-            "%s, %s, %s, %d, %.2f, %d, %s, \"%s\", Beneficio: %.2f\n",
-            $vivienda->getTipo(),
-            $vivienda->getZona(),
-            $vivienda->getDireccion(),
-            $vivienda->getDormitorios(),
-            $vivienda->getPrecio(),
-            $vivienda->getTamano(),
-            implode(', ', $vivienda->getExtras()),
-            $vivienda->getObservaciones(),
-            $vivienda->calcularBeneficio()
-        );
+    public function guardar(Vivienda $vivienda)
+    {
+        if (file_exists($this->rutaArchivo)) {
+            $xml = simplexml_load_file($this->rutaArchivo);
+        } else {
+            $xml = new SimpleXMLElement('<viviendas></viviendas>');
+        }
 
-        // Guardar los datos en el archivo
-        file_put_contents($this->rutaArchivo, $datos, FILE_APPEND);
+        $viviendaXML = $xml->addChild('vivienda');
+
+        foreach ($vivienda->obtenerDatosParaXML() as $campo => $valor) {
+            $viviendaXML->addChild($campo, htmlspecialchars($valor));
+        }
+        // $xml->asXML($this->rutaArchivo);
+
+        $dom = new DOMDocument("1.0", "utf-8");
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = true;
+        $dom->loadXML($xml->asXML());
+
+        $dom->save($this->rutaArchivo);
+
     }
 }

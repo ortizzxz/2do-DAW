@@ -1,5 +1,9 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +13,7 @@
 
 <body>
     <div class="formulario">
+
 
         <form action="procesar_vivienda.php" method="POST" enctype="multipart/form-data">
             <label for="tipo">Tipo de vivienda:</label>
@@ -33,18 +38,18 @@
             <input type="text" name="direccion" id="direccion" required><br>
 
             <label for="dormitorios">Número de dormitorios:</label>
-            <input type="number" name="dormitorios" id="dormitorios" min="1" max="5" required><br>
+            <input type="text" name="dormitorios" id="dormitorios" min="1" max="5" required><br>
 
             <label for="precio">Precio:</label>
-            <input type="number" name="precio" id="precio" required><br>
+            <input type="text" name="precio" id="precio" required><br>
 
             <label for="tamano">Tamaño en m²:</label>
-            <input type="number" name="tamano" id="tamano" required><br>
+            <input type="text" name="tamano" id="tamano" required><br>
 
-            <label>Extras:</label><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" name="extras[]" value="Piscina"> Piscina<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" name="extras[]" value="Jardín"> Jardín<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" name="extras[]" value="Garage"> Garage<br>
+            <label>Extras:</label>
+            <input type="checkbox" name="extras[]" value="Piscina"> Piscina
+            <input type="checkbox" name="extras[]" value="Jardín"> Jardín
+            <input type="checkbox" name="extras[]" value="Garage"> Garage <br>
 
             <label for="foto">Foto:</label>
             <input type="file" name="foto" id="foto"><br>
@@ -53,6 +58,16 @@
             <textarea name="observaciones" id="observaciones"></textarea><br>
 
             <input type="submit" value="Registrar Vivienda">
+            <?php
+
+            // Muestra los errores si existen
+            if (isset($_SESSION['errores'])) {
+                foreach ($_SESSION['errores'] as $error) {
+                    echo "<p class='error'>" . htmlspecialchars($error) . "</p>";
+                }
+                unset($_SESSION['errores']);
+            }
+            ?>
         </form>
     </div>
 </body>

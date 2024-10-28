@@ -1,5 +1,0 @@
-Piso, Chana, Calle Tórtola 32, 4, 95000.00, 68, Garage, "Ninguna", Beneficio: 20900.00
-Adosado, Albaicín, Calle Tórtola 32, 4, 95000.00, 68, Garage, "Ninguna", Beneficio: 19000.00
-Adosado, Albaicín, Calle Tórtola 32, 4, 95000.00, 68, Garage, "Ninguna", Beneficio: 19000.00
-Adosado, Albaicín, Calle Tórtola 32, 4, 95000.00, 68, Garage, "Ninguna", Beneficio: 19000.00
-Adosado, Albaicín, Calle Tórtola 32, 4, 95000.00, 68, Garage, "Ninguna", Beneficio: 19000.00

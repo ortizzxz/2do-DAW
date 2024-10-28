@@ -21,18 +21,42 @@ class ValidadorVivienda
         }
 
         // Validar número de dormitorios
-        if ($datos['dormitorios'] < 1 || $datos['dormitorios'] > 5) {
-            $errores[] = "El número de dormitorios debe estar entre 1 y 5.";
+        $dormitorios = $datos['dormitorios'];
+        $dormitorios = filter_var($dormitorios, FILTER_SANITIZE_NUMBER_INT);
+
+        if (!filter_var($dormitorios, FILTER_VALIDATE_INT)) {
+            $errores[] = "El número de dormitorios debe ser un número";
+        } else {
+            $dormitorios = intval($dormitorios); 
+            if ($dormitorios > 5 || $dormitorios < 1) {
+                $errores[] = "El número de dormitorios debe estar entre 1 y 5.";
+            }
         }
 
         // Validar precio
-        if ($datos['precio'] <= 0) {
-            $errores[] = "El precio debe ser mayor que cero.";
+        $precio = $datos['precio'];
+        $precio = filter_var($precio, FILTER_SANITIZE_NUMBER_INT);
+
+        if (!filter_var($precio, FILTER_VALIDATE_INT)) {
+            $errores[] = "El precio debe ser un numero.";
+        }else{
+            $precio = intval($precio);
+            if($precio < 0){
+                $errores['precio'] = "El precio tiene que ser mayor que 0.";
+            }
         }
 
         // Validar tamaño en metros cuadrados
-        if ($datos['tamano'] <= 0) {
-            $errores[] = "El tamaño debe ser mayor que cero.";
+        $tamano = $datos['tamano'];
+        $tamano = filter_var($tamano, FILTER_SANITIZE_NUMBER_INT);
+
+        if (!filter_var($tamano, FILTER_VALIDATE_INT)) {
+            $errores[] = "El tamaño debe ser un numero.";
+        }else{
+            $tamano = intval($tamano);
+            if($tamano < 0){
+                $errores['tamano'] = "El tamaño tiene que ser mayor que 0.";
+            } 
         }
 
         // Validar foto
