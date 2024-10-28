@@ -43,3 +43,7 @@
 .exampleboxshadowg {
 
 }
+
+p { font-size: 2em; margin: 1em; padding: 0 5px; }
+
+.tres{text-shadow: 1px 1px 2px red, 0 0 1em rgb(0, 0, 0), 0 0 0.2em blue}
