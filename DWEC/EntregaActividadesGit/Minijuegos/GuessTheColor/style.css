@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer{
+    border: 1px solid gray;
+    margin: 50px auto;
+    height: fit-content;
+    width: 50%;
+    background-color: #232323;
+}
+
+.cabecera{
+    background-color: blue;
+    padding: 10px;
+    text-align: center;
+}
+
+.navBar{
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.displayColors{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    
+}
+
+.displayColors * {
+    padding: 35px;
+    text-align: center;
+    margin: 2px auto;
+    height: 80px;
+    width: 15%;
+}
+
+button{
+    padding: 5px;
+    width: 150px;
+}
+
+.color{
+    border-radius: 20px;
+    margin: 8px auto;
+}
+
+
+.wannaBtn{
+    padding: 5px;
+    color: blue;
+}
+
+.wannaBtn:hover{
+    background-color: blue;
+    color: white;
+    cursor:default;
+}
