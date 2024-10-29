@@ -12,7 +12,8 @@ table {
     margin: 3em auto 1em;
 }
 
-table,
+
+table, 
 tr,
 th,
 td {
@@ -41,6 +42,10 @@ fieldset {
     flex-direction: column;
     line-height: 25px;
 }
+
+
+
+/* Segundo Ejercicio*/
 
 form {
     margin: 2em;
