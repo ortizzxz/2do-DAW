@@ -58,6 +58,8 @@ button{
 .wannaBtn{
     padding: 5px;
     color: blue;
+    width: 150px;
+    text-align: center;
 }
 
 .wannaBtn:hover{
