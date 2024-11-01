@@ -1,0 +1,18 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 4em auto;
+    background-color: #518ABB;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+}

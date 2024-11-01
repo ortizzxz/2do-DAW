@@ -15,16 +15,28 @@ window.onload = () => {
     resultado.addEventListener('click', realizaOperacion);
 
     function realizaOperacion(){
+        let op;
+
         numActual = parseFloat(writingBox.innerHTML);
         switch(operacionActual){
             case 'suma':
-                writingBox.innerHTML = suma(numAnterior,numActual);
+                op = suma(numAnterior,numActual);
+                if(op == Infinity){
+                    writingBox.innerHTML = "";
+                }else{
+                    writingBox.innerHTML = op;
+                }
                 break;
             case 'resta':
                 writingBox.innerHTML = resta(numAnterior,numActual);
                 break;
             case 'multiplicacion':
-                writingBox.innerHTML = multiplicacion(numAnterior,numActual);
+                op = multiplicacion(numAnterior,numActual);
+                if(op == Infinity){
+                    writingBox.innerHTML = "";
+                }else{
+                    writingBox.innerHTML = op;
+                }
                 break;
             case 'division':
                 writingBox.innerHTML = division(numAnterior, numActual);
@@ -58,13 +70,14 @@ window.onload = () => {
         operacionActual = 'division';
     });
     
+   
     
     teclas.forEach(element => {
         element.addEventListener('click', (e) => {
             if( !(element.innerHTML == "C")){
                 writingBox.innerHTML += element.innerHTML;
             }else{
-                writingBox.innerHTML = "0";
+                writingBox.innerHTML = "";
             }
         })
     });
@@ -77,7 +90,7 @@ var multiplicacion = (num1, num2) => (num1 * num2);
 
 function division(num1, num2){
     if(num2 == 0){
-        return 0;
+        return "Can't divide by 0";
     }
 
     return num1 / num2;
