@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+}
+
+.outterContainer {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+}
+
+.innerContainer {
+    border: 1px solid yellow;
+    width: 100px;
+    height: 100px;
+}
+
+.tarjetero {
+    display: flex;
+}
+
+.tarjetaUno {
+    border: 1px solid black;
+    width: 150px;
+    height: 300px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetero img {
+    height: 30%;
+    width: 100%;
+}
+
+.tarjetero h1 {
+    font-size: medium;
+    margin-left: 2px;
+}
+
+.tarjetero p {
+    font-size: small;
+    margin-left: 4px;
+    margin-right: 2px;
+
+}
+
+#botonFondo {
+    width: 100%;
+    background-color: gray;
+    color: white;
+    border: 0px;
+
+}
+
+.cuerpo {
+    flex-grow: 1;
+}
+
+
+.mediaObject img, .mediaObjectViceversa img {
+    width: 150px;
+}
+
+.mediaObject, .mediaObjectViceversa{
+    border: 1px solid gray;
+    width: 80%;
+    height: 150px;
+    display: flex;
+    overflow: hidden;
+    display: flex;
+    margin: 4px;
+    padding: 10px;
+}
+
+.mediaObjectViceversa{
+    flex-direction: row-reverse;
+}
+
+.mediaObject h1, p{
+    font-size: medium;
+}
+
+
+.mediaBody {
+    flex-wrap: wrap;
+}
+
+.noticiero{
+    border: 1px solid purple;
+    width: 50%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.noticias{
+    /* width: 50%; */
+    flex-basis: 50%;
+    border: 1px solid black;
+    background-color: yellow;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.noticias:last-child{
+    background-color: blue;
+    order: -1;
+    /* width: 100%; */
+    flex-basis: 100%;
+}
+
