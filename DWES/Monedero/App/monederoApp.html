@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mondedero Personal</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+
 <body>
     <div class="contenedorPrincipal">
 
@@ -16,15 +18,47 @@
             <img src="../public/euroCurrency.jpg" alt="Logotipo Euro" id="logoEuro">
         </div>
 
+        <!-- SALDO ACTUAL -->
+        <div class="saldo">
+            <div class="displaySaldo">
+                <!-- DATOS -->
+            </div>
+        </div>
         <!-- BODY -->
         <div class="body">
             <div class="cabeceraBody">
-                <div class="concepto"><h1>Concepto</h1></div>
-                <div class="fecha"><h1>Fecha</h1></div>
-                <div class="importe"><h1>Importe</h1></div>
-                <div class="operaciones"><h1>Operaciones</h1></div>
+                <div class="concepto">
+                    <h1>Concepto</h1>
+                </div>
+                <div class="fecha">
+                    <h1>Fecha</h1>
+                </div>
+                <div class="importe">
+                    <h1>Importe</h1>
+                </div>
+                <div class="operaciones">
+                    <h1>Operaciones</h1>
+                </div>
             </div>
             <div class="bodyRegistros">
+                <div class="registroUnico">
+
+                    <div class="datosRecibidos">
+                        <div class="conceptoDatos">
+                            <!-- DATOS -->
+                        </div>
+                        <div class="fechaDatos">
+                            <!-- DATOS -->
+                        </div>
+                        <div class="importeDatos">
+                            <!-- DATOS -->
+                        </div>
+                    </div>
+                    <div class="botonesRegistroUnico">
+                        <button>Editar</button>
+                        <button>Eliminar</button>
+                    </div>
+                </div>
             </div>
 
             <!-- FORMULARIO PARA INPUTS -->
@@ -47,8 +81,15 @@
                 <label for="buscarConcepto">Buscar Concepto</label>
                 <input type="text" name="buscarConcepto" id="inputBuscarConcepto">
                 <button type="submit" id="buscarBoton">Buscar</button>
+                <button type="submit" id="buscarTodasOperaciones">Mostrar todas las operaciones</button>
             </form>
+        </div>
+
+        <!-- REGISTROS MONEDEROS -->
+        <div class="operacionesMonedero">
+            <h2>Número de Transacciones: </h2>
         </div>
     </div>
 </body>
+
 </html>

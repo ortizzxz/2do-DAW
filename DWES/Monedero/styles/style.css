@@ -6,9 +6,9 @@
 }
 
 .contenedorPrincipal{
-    width: 80%;
-    height: 600px;
-    margin: 10px auto;
+    width: 80vw;
+    height: 90vh;
+    margin: 5px auto;
     background-color: rgb(206, 206, 206);
     border: 1px solid black;
 }
@@ -36,7 +36,7 @@
     height: 60%;
     padding: 5px;
     background-color: white;
-    margin: 2em 1em 1em 1em ;
+    margin: 0px 1em 1em 1em ;
 }
 
 .cabeceraBody{
@@ -53,24 +53,25 @@
 }
 
 .concepto{
-    flex-grow: 0.5;
+    flex-grow: 0.4;
 }
 
 .fecha{
-    flex-grow: 0.2;
+    flex-grow: 0.4;
 }
 
 .importe{
-    flex-grow: 0.1;
+    flex-grow: 0.2;
 }
 
 .operaciones{
-    flex-grow: 0.2;
+    flex-grow: 0.1;
 }
 
 .bodyRegistros{
     margin: 4px;
     height: 75%;
+    overflow: scroll;
 }
 
 .bodyInput{
@@ -81,6 +82,7 @@
 .bodyInput form{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background-color: rgb(206, 206, 206);
     padding: 4px;
 }
@@ -105,6 +107,7 @@
 
 .buscarConcepto form{
     display: flex;
+    align-items: center;
     justify-content: center;
     padding: 4px;
 }
@@ -119,4 +122,81 @@
     border-color: gray;
     padding: 2px;
     width: 10%;
+}
+
+#buscarTodasOperaciones{
+    background-color: white;
+    border-color: gray;
+    padding: 2px;
+    margin-left: 2px;
+    width: 20%;
+}
+
+/*SALDO*/
+.saldo{
+    width: 100%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.displaySaldo{
+    border-radius: 10px;
+    background-color: white;
+    width: 20%;
+    height: 7vh;
+    text-align: center;
+    font-size: medium;
+}
+
+/*REGISTROS*/
+.operacionesMonedero{
+    font-size: small;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*REGISTRO UNICO*/
+
+.registroUnico{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(206, 206, 206);
+    margin: 4px 0px;
+    padding: 8px 0px;
+}
+
+.botonesRegistroUnico{
+    display: flex;
+    width: 15%;
+    justify-content: center;
+}
+.botonesRegistroUnico button{
+    padding: 4px;
+    margin: 0px 2px;
+}
+
+.datosRecibidos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px; 
+    flex-grow: 1;
+}
+
+.conceptoDatos {
+    width: 40%; 
+}
+
+.fechaDatos {
+    width: 20%; 
+    text-align: left;
+}
+
+.importeDatos {
+    width: 20%;
+    text-align: left;
 }
