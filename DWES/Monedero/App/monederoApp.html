@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mondedero Personal</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div class="contenedorPrincipal">
+
+        <!-- CABECERA -->
+        <div class="header">
+            <img src="../public/euroCurrency.jpg" alt="Logotipo Euro" id="logoEuro">
+            <h1>Monedero Personal</h1>
+            <img src="../public/euroCurrency.jpg" alt="Logotipo Euro" id="logoEuro">
+        </div>
+
+        <!-- BODY -->
+        <div class="body">
+            <div class="cabeceraBody">
+                <div class="concepto"><h1>Concepto</h1></div>
+                <div class="fecha"><h1>Fecha</h1></div>
+                <div class="importe"><h1>Importe</h1></div>
+                <div class="operaciones"><h1>Operaciones</h1></div>
+            </div>
+            <div class="bodyRegistros">
+            </div>
+
+            <!-- FORMULARIO PARA INPUTS -->
+            <div class="bodyInput">
+                <form action="">
+                    <label for="concepto">Concepto:</label>
+                    <input type="text" placeholder="Cena familiar" id="concepto">
+                    <label for="fecha">Fecha:</label>
+                    <input type="text" placeholder="dd-mm-yyyy" id="fecha">
+                    <label for="importe">Importe:</label>
+                    <input type="number" placeholder="000" id="importe">
+                    <button type="submit" id="addRegistro">Añadir Registro</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- BUSCAR POR CONCEPTO -->
+        <div class="buscarConcepto">
+            <form action="">
+                <label for="buscarConcepto">Buscar Concepto</label>
+                <input type="text" name="buscarConcepto" id="inputBuscarConcepto">
+                <button type="submit" id="buscarBoton">Buscar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
