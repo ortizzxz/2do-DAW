@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Formularios</title>
+        <style>
+            .contenedor{
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                align-items: center;
+                margin: 2px auto;
+            }
+        </style>
+        <script src="index.js" type="module"></script>
+    </head>
+    <body>
+        <div class="contenedor">
+            <h1>Formulario Cliente</h1>    
+            
+            <form action=""></form>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre"> 
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido">
+                <label for="dni">DNI</label>
+                <input type="text" name="dni" id="dni">
+                <label for="telefono">Telefóno</label>
+                <input type="number" name="telefono" id="telefono">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+    
+                <button type="submit" id="btnSubmit">Envíar Registro</button>
+            </form>    
+
+        </div>
+    </body>
+</html>

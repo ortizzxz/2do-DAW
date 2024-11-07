@@ -11,7 +11,7 @@ window.onload = () => {
     }
     
     function handleMove(e){
-        cadena = "";
+        cadena = "";    
         for(punto of e.changedTouches){
             cadena += punto.pageX + " ";
             document.getElementById('elemento').innerText = cadena;
