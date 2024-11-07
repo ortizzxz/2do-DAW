@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Usuario</title>
+    <style>
+        * {
+            background-color: #EF767A;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100dvh;
+        }
+
+        .contenedor {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            margin: 0px;
+            color: white;
+            font-weight: lighter;
+            font-size: x-large;
+            padding-left: 20px;
+            list-style-position: inside;
+        }
+
+        #username {
+            border: 0px;
+            border-bottom: 2px solid white;
+            font-size: xx-large;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        ::placeholder,
+        #username {
+            color: #F4A9AA;
+        }
+
+        #username:active,
+        #username:focus {
+            border: 0px 2px 0px 0px;
+            outline: none;
+        }
+
+        #submit {
+            font-size: large;
+            background-color: #F6A896;
+            color: #EF767A;
+            width:10%;
+            border-width: 0px;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 4px auto;
+        }
+    </style>
+    <script src="formularioRosa.js"></script>
+</head>
+
+<body>
+    <div class="contenedor">
+
+        <form action="">
+            <input type="text" id="username" placeholder="username">
+        </form>
+        <ul>
+            <li>1 lower case character</li>
+            <li>1 uppercase character</li>
+            <li>6 minimum characters</li>
+        </ul>
+        <button type="submit" id="submit">Submit</button>
+    </div>
+</body>
+
+</html>
