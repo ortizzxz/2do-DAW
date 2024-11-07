@@ -57,6 +57,16 @@ window.onload = () => {
             emailInput.style.borderColor = "green"; 
         }
     });
+    
+    usernameInput.addEventListener('focusout', () => {
+        if(!validarUser(usernameInput.value)){
+            usernameInput.value = "";
+            usernameInput.placeholder = "usuar1oV4lido"
+            usernameInput.style.borderColor = "red"; 
+        }else{
+            usernameInput.style.borderColor = "green"; 
+        }
+    });
 };
 
 function validarRelleno(str){
@@ -72,4 +82,9 @@ function validarDNI(str){
 function validarNumeroTelefono(str) {
     var regex = /^[0-9]{9,10}$/;
     return regex.test(str);
+}
+
+function validarUser(str){
+    var regExp = /^(?=.*\d)(?=.*[^\d\s])[^\s]+$/;
+    return regExp.test(str);
 }
