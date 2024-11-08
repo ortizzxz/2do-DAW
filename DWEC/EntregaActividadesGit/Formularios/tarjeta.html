@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #DCEDFB;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedorPrincipal {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .expDateCVV {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footerForm {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footerForm input {
+            width: 30%;
+        }
+
+        input[type="submit"] {
+            background-color: #2263D1;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tarjeta {
+            border: 2px solid gainsboro;
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cabecera {
+            height: 30%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .imagen {
+            width: 20%;
+            height: 100%;
+        }
+
+        .imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cuerpo {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .numeroTarjeta {
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .nombreTitular {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .fechaExpiracion {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+        }
+
+        .tarjeta::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 50%,
+                transparent 100%
+            );
+            transform: rotate(-45deg);
+            pointer-events: none;
+        }
+    </style>
+    <script src="tarjeta.js"></script>
+</head>
+
+<body>
+    <div class="contenedorPrincipal">
+        <div class="tarjeta">
+            <div class="cabecera">
+                <div class="imagen">
+                    <img src="chip.jpg" alt="Chip">
+                </div>
+                <div class="imagen">
+                    <img src="visaLogo.png" alt="Visa Logo">
+                </div>
+            </div>
+            <div class="cuerpo">
+                <div class="numeroTarjeta">
+                    <p id="numeroDeTarjeta"></p>
+                </div>
+                <div class="nombreTitular">
+                    <p id="nombreDeCliente"></p>
+                </div>
+            </div>
+            <div class="fechaExpiracion">
+                <p id="fechaDeExpiracion"></p>
+            </div>
+        </div>
+        <form action="">
+            <label for="cardHolder">Card Holder</label>
+            <input type="text" id="cardHolder" placeholder="Full Name" required>
+            <label for="cardNumber">Card Number</label>
+            <input type="number" id="cardNumber" placeholder="Card Number" required>
+    
+            <div class="expDateCVV">
+                <label for="expirationDate">Expiration Date</label>
+                <label for="cvv">CVV</label>
+            </div>
+            <div class="footerForm">
+                <input type="text" id="expirationMonth" placeholder="MM" required>
+                <input type="text" id="expirationYear" placeholder="YYYY" required>
+                <input type="text" id="cvv" placeholder="123" required>
+            </div>  
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

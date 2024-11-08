@@ -90,7 +90,7 @@ function validarCorreo(str) {
 
 
 function validarCaracteresEspeciales(str) {
-    var regex = /[!@#$%^&]+/;
+    var regex = /[!@#$%^&.]+/;
 
     return regex.test(str);
 }
