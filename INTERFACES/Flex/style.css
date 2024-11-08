@@ -116,3 +116,21 @@
     flex-basis: 100%;
 }
 
+.imagenesContenedor{
+    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorImagen {
+    margin: 2px;
+    width: 25rem;
+}
+
+.contenedorImagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
