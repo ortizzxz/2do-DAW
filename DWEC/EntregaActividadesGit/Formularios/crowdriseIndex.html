@@ -101,7 +101,16 @@
             margin: auto;
             border-color: rgb(168, 93, 87);
         }
+
+        footer{
+            padding: 5px;
+            background: rgb(168, 93, 87);
+            width: 70%;
+            border-radius: 10px;
+            margin: auto;
+        }
     </style>
+    <script src="crowdriseIndex.js  "></script>
 </head>
 
 <body>
@@ -143,10 +152,13 @@
                     <input type="checkbox" id="spam"> <label for="spam">Yes, I want spam.</label>
                 </div>
                 <div class="form-groupFlex">
-                    <input type="checkbox" id="agree"> <label for="agree">I agree to the <a href="#">exploitation</a>.</label>
+                    <input type="checkbox" id="agree" required> <label for="agree">I agree to the <a href="#">exploitation</a>.</label>
                 </div>    
                 <button type="submit" id="btn">Sign Up</button>
             </form>
+            <footer>
+                <p>Liking what you see? - See more at <a href="https://github.com/ortizzxz/" target="_blank">GitHub!</a></p>
+            </footer>
         </div>
     </div>
 </body>
