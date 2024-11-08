@@ -1,37 +1,63 @@
-window.onload = () => {
+window.addEventListener('load', () => {
     // tarjeta
-    var numeroDeTarjeta = document.getElementById('numeroDeTarjeta');
-    var nombreDeCliente = document.getElementById('nombreDeCliente');
-    var fechaDeExpiracion = document.getElementById('fechaDeExpiracion');
+    const numeroDeTarjeta = document.getElementById('numeroDeTarjeta');
+    const nombreDeCliente = document.getElementById('nombreDeCliente');
+    const fechaDeExpiracion = document.getElementById('fechaDeExpiracion');
 
-    // formulario
-    var usuario = document.getElementById('cardHolder');
-    var tarjeta = document.getElementById('cardNumber');
-    var expirationMonth = document.getElementById('expirationMonth');
-    var expirationYear = document.getElementById('expirationYear');
-    var cvv = document.getElementById('cvv')
+    // Formulario 
+    const usuario = document.getElementById('cardHolder');
+    const tarjeta = document.getElementById('cardNumber');
+    const expirationMonth = document.getElementById('expirationMonth');
+    const expirationYear = document.getElementById('expirationYear');
+    const cvv = document.getElementById('cvv');
 
-    usuario.addEventListener('input', (e) =>{
-        if(e.data != null){
-            nombreDeCliente.innerHTML += e.data;
-        }else{
-            numeroDeTarjeta.innerHTML = numeroDeTarjeta.innerHTML.slice(0, -1);
-        }
+    usuario.addEventListener('input', (e) => {
+        nombreDeCliente.textContent = e.target.value;
     });
 
     tarjeta.addEventListener('input', (e) => {
-        if(e.data != null){
-            if(numeroDeTarjeta.innerHTML.length <= 18){
-                if((numeroDeTarjeta.innerHTML.length+1) % 5 == 0){ // de 4 en 4
-                    numeroDeTarjeta.innerHTML = numeroDeTarjeta.innerHTML + " " + e.data;
-                }else{
-                    numeroDeTarjeta.innerHTML += e.data;
-                }
-            }
+        let value = tarjeta.value.replace(/\D/g, ''); 
 
-        }else{
-            numeroDeTarjeta.innerHTML = numeroDeTarjeta.innerHTML.slice(0, -1);
+        if (value.length > 16) {
+            value = value.slice(0, 16); 
+            tarjeta.value = value; 
         }
-    })
 
-};
+        if(value.length == 0){
+            numeroDeTarjeta.textContent = "";
+        }
+        
+        let formattedValue = '';
+
+        for (let i = 0; i < value.length; i++) {
+            if ( (i > 0) && (i % 4 === 0) ) {
+                formattedValue += ' ';
+            }
+            formattedValue += value[i];
+        }
+        
+        numeroDeTarjeta.textContent = formattedValue;
+    });
+
+
+    expirationMonth.addEventListener('input', updateExpiration);
+    expirationYear.addEventListener('input', updateExpiration);
+
+    function updateExpiration() {
+        const month = expirationMonth.value;
+        const year = expirationYear.value.slice(-2);
+        fechaDeExpiracion.textContent = month + "/" + year;
+    }
+
+    cvv.addEventListener('input', (e) =>{
+        let value = cvv.value.replace(/\D/g, ''); 
+
+        if (value.length > 3) {
+            value = value.slice(0, 3); 
+            cvv.value = value; 
+        }
+
+    });
+
+
+});
