@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #contenedor{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        #contenedorDos{
+            display: none;
+            flex-direction: column;
+            width: 40%;
+        }
+
+        input{
+            width: 80px;
+        }
+    </style>
+    <script src="webUser.js"></script>
+</head>
+<body>
+    <div id="contenedor">
+        <label for="username">Username: </label>
+        <input type="text" id="username">
+        <button type="submit" id="enviar">Enviar</button>
+    </div>
+
+    <div id="contenedorDos">
+        <h1 id="usuarioGreeting"></h1>
+        <a href="" id="cerrarSesion">Cerrar sesión</a>
+        Tamaño de Letra <input type="text" name="letra" id="letra" placeholder="12, 14, 16...">
+    </div>
+</body>
+</html>
