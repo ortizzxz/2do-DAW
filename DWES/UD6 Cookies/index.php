@@ -1,13 +1,13 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['visitas'])) {
-    $_SESSION['visitas'] = 0;
-}
+    if (!isset($_SESSION['visitas'])) {
+        $_SESSION['visitas'] = 0;
+    }
 
-$_SESSION['visitas']++;
+    $_SESSION['visitas']++;
 
-echo "Has visitado esta página " . $_SESSION['visitas'] . " veces.";
+    echo "Has visitado esta página " . $_SESSION['visitas'] . " veces.";
 ?>
 
 <!DOCTYPE html>
