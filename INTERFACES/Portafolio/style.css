@@ -1,0 +1,191 @@
+/* styles.css */
+
+:root {
+    --color-primario: #3498db;
+    --color-secundario: #2c3e50;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333;
+    --color-card: #fff;
+    --fuente-principal: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+header {
+    background-color: var(--color-secundario);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: var(--color-primario);
+}
+
+.hero {
+    background-image: url('hero-bg.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+
+.hero-content {
+    position: relative; /* To keep text above overlay */
+}
+
+.btn-github {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: darkblue; /* Darker shade on hover */
+}
+
+section {
+    padding: 60px 20px; /* Espaciado uniforme */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px; /* Espacio entre el título y el contenido */
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra los elementos */
+}
+
+.proyecto {
+    flex-basis: calc(33.33% - 20px);
+    margin: 10px; 
+}
+
+.proyecto img {
+   width: 100%;
+   border-radius: 10px; /* Bordes redondeados */
+   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra sutil */
+   transition: transform 0.3s ease; /* Efecto de hover */
+}
+
+.proyecto img:hover {
+   transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.foto-perfil {
+   border-radius: 50%;
+   width: 150px; /* Tamaño fijo para la imagen de perfil */
+   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+   margin-bottom: 20px; /* Espacio bajo la imagen */
+   display:block; /* Centrar la imagen */
+   margin-left:auto; 
+   margin-right:auto; 
+}
+
+.servicio-card, .testimonio-card {
+   background-color: var(--color-card);
+   border-radius: 10px; /* Bordes redondeados en las cards */
+   padding: 20px;
+   margin-bottom: 20px; 
+   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+   transition: transform 0.3s ease; 
+}
+
+.servicio-card:hover, .testimonio-card:hover {
+   transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+}
+
+.barra-progreso {
+   margin-bottom: 10px; 
+   display:flex; 
+   align-items:center; 
+}
+
+.barra-progreso label {
+   flex-basis: calc(25% - 10px);
+}
+
+.barra-progreso progress {
+   flex-basis: calc(70% - 10px);
+}
+
+
+#contenedor-servicios{
+    display: flex;
+    flex-wrap: wrap ;
+}
+
+/* Estilos para el formulario */
+form {
+   display:flex; 
+   flex-direction:center; 
+   flex-wrap:center; 
+   justify-content:center; 
+   max-width :600px; 
+   margin:auto; 
+}
+
+form input, form textarea, form button {
+   width :100%; 
+   padding :10px ; 
+   margin-bottom :15px ; 
+   border-radius :5px ; 
+   border :1px solid var(--color-secundario); 
+}
+
+form button {
+   background-color :var(--color-primario); 
+   color:white ; 
+   cursor:pointer ; 
+   transition :background-color .3s ease ; 
+}
+
+form button:hover {
+   background-color :darkblue ; 
+}
+
+/* Media Queries */
+@media (max-width :768px) {
+   .proyecto {flex-basis :calc(50% - 20px);}
+}
+@media (max-width :480px) {
+   .proyecto {flex-basis :calc(100% - 20px);}
+}

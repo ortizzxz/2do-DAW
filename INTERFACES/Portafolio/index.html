@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#trabajos">Mis Proyectos</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Juan Pérez</h1>
+                <p>Desarrollador Web Front-End</p>
+                <a href="https://github.com/ortizzxz" target="_blank" class="btn-github">Visita mi GitHub</a>
+            </div>
+        </section>
+
+        <section id="trabajos">
+            <h2>Mis Proyectos</h2>
+            <div class="galeria">
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 1"></div>
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 2"></div>
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 3"></div>
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 4"></div>
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 5"></div>
+                <div class="proyecto"><img src="./hero-bg.jpg" alt="Proyecto 6"></div>
+            </div>
+        </section>
+
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <img src="./hero-bg.jpg" alt="Foto de Juan Pérez" class="foto-perfil">
+            <p>Soy un apasionado desarrollador web con más de 5 años de experiencia en la creación de sitios web responsivos y funcionales. Me encanta aprender nuevas tecnologías y mejorar mis habilidades constantemente.</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Servicios</h2>
+            <div id="contenedor-servicios">
+            <div class="servicio-card">
+                <i class="fas fa-code"></i>
+                <h3>Desarrollador Front-End</h3>
+                <p>Creación de interfaces atractivas y funcionales utilizando HTML, CSS y JavaScript.</p>
+            </div>
+
+            <div class="servicio-card">
+                <i class="fas fa-database"></i>
+                <h3>Desarrollador Back-End</h3>
+                <p>Desarrollo de la lógica del servidor y gestión de bases de datos.</p>
+            </div>
+
+            <div class="servicio-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Diseñador Web</h3>
+                <p>Diseño de experiencias visuales atractivas y usables.</p>
+            </div>
+        </div>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="barra-progreso">
+                <label for="">HTML5</label><progress value="90" max="100"></progress><span>90%</span>
+            </div>
+            <div class="barra-progreso">
+                <label for="">CSS3</label><progress value="85" max="100"></progress><span>85%</span>
+            </div>
+            <div class="barra-progreso">
+                <label for="">JavaScript</label><progress value="75" max="100"></progress><span>75%</span>
+            </div>
+            <!-- Agrega más habilidades según sea necesario -->
+        </section>
+
+        <section id="testimonios">
+            <h2>Testimonios</h2>
+            <div class="testimonio-card">
+                <h3>Ana Gómez</h3>
+                <p>"Juan es un excelente profesional. Su trabajo superó nuestras expectativas."</p>
+            </div>
+
+            <div class="testimonio-card">
+                <h3>Carlos López</h3>
+                <p>"Gran atención al detalle y siempre cumple con los plazos."</p>
+            </div>
+
+            <!-- Agrega más testimonios según sea necesario -->
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form action="#" method="post" id="form-contacto">
+                <input type="text" name="nombre" placeholder="Tu Nombre" required />
+                <input type="email" name="email" placeholder="Tu Email" required />
+                <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <!-- Redes sociales -->
+        &copy; 2024 Juan Pérez | 
+        Redes: 
+        <a href="#"><i class='fab fa-facebook'></i></a> 
+        | 
+        <a href="#"><i class='fab fa-twitter'></i></a> 
+        | 
+        <a href="#"><i class='fab fa-linkedin'></i></a> 
+    </footer>
+
+<script src=""></script> <!-- Si necesitas agregar scripts -->
+</body>
+</html>
