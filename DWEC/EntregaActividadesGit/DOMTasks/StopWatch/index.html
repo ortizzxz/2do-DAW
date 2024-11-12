@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: #FEA600;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            font-weight: 100;
+        }
+
+        .cabecera{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin: 20vh auto;
+            margin-bottom: 20px;
+            line-height: 0px;
+        }
+
+        .btn{
+            display: flex;
+            width: fit-content;
+            margin: 0px auto;
+        }
+
+        .btn button{
+            margin: 20px;
+            width: 200px;
+            padding: 20px;
+            border-color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="cabecera">
+        <h1>StopWatch</h1>
+        <h2>Vanilla Javascript StopWatch</h2>
+        <h2 id="tiempo">00:00</h2>
+    </div>
+
+    <div class="btn">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+</body>
+</html>
