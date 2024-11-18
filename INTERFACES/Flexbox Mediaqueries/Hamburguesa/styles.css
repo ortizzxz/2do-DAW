@@ -17,7 +17,7 @@ body {
     position: fixed;
     top: 0;
     right: -250px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .hamburger-toggle {
@@ -40,7 +40,7 @@ body {
     height: 3px;
     background-color: #333;
     margin: 5px 0;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .nav-links {

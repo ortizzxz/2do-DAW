@@ -1,0 +1,143 @@
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.8em;
+    padding: 15px;
+  }
+
+  .icon-link {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .proyecto {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .acerca-demi {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .img-acercademi .foto-perfil {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .parrafo-acercademi {
+    padding-left: 0;
+  }
+
+  #contacto {
+    padding: 40px 20px;
+    margin: 10px;
+  }
+
+  #form-contacto button {
+    font-size: 1em;
+  }
+  .hero {
+    height: 86dvh;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-image {
+    flex: none;
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-text {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .btn-github {
+    padding: 10px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .img-presentacion {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn-github {
+    padding: 8px 16px;
+  }
+  .testimonio-card {
+    width: calc(50% - 20px);
+  }
+  .proyecto {
+    width: calc(100% - 20px); 
+  }
+
+  #trabajos h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonio-card {
+    width: 100%;
+  }
+  .navbar .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .proyecto {
+    flex-basis: calc(100% - 20px);
+  }
+
+  .img-acercademi {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .proyecto {
+    width: calc(50% - 20px);
+  }
+}
