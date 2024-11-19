@@ -1,0 +1,63 @@
+/* -------------------- Acerca De -------------------- */
+.acerca-demi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(27, 20, 74, 1) 0%,
+    rgba(19, 57, 64, 1) 100%
+  );
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.acerca-demi:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen de perfil */
+.img-acercademi {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-acercademi .foto-perfil {
+  width: 15rem;
+  height: 10rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-acercademi .foto-perfil:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor de texto */
+.parrafo-acercademi {
+  flex: 2;
+  text-align: justify;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  color: #f1f1f1;
+}
+
+.parrafo-acercademi p {
+  margin: 0;
+}
+
+#sobre-mi h2 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--color-secundario);
+}

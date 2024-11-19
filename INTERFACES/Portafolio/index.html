@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsiveness.css">
+    <link rel="stylesheet" href="serviciosStyle.css" />
+    <link rel="stylesheet" href="acercaDeStyle.css" />
+    <link rel="stylesheet" href="contactoStyle.css" />
+    <link rel="stylesheet" href="testimoniosHabilidadesStyle.css" />
+    <link rel="stylesheet" href="heroTrabajoStyle.css" />
+    <link rel="stylesheet" href="headerStyle.css" />
+    <link rel="stylesheet" href="responsiveness.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -13,110 +19,125 @@
   </head>
   <body>
     <header>
-        <nav class="navbar">
-          <div class="logo">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#" id="logo">
             <h1>Jesús Ortiz</h1>
-          </div>
-          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-          <label for="menu-toggle" class="hamburger">
-            <i class="fas fa-bars"></i>
-          </label>
-          <ul class="nav-links">
-            <li><a href="#trabajos">Mis Proyectos</a></li>
-            <li><a href="#sobre-mi">Sobre Mí</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-      
+          </a>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">
+          <span class="hamburger-icon">&#9776;</span>
+          <span class="close-icon">&times;</span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="#trabajos">Mis Proyectos</a></li>
+          <li><a href="#sobre-mi">Sobre Mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-              <div class="hero-image">
-                <img src="./hero-bg.jpg" alt="Jesús Ortiz" class="img-presentacion">
-              </div>
-              <div class="hero-text">
-                <h1>Jesús Ortiz</h1>
-                <p>Desarrollador de Aplicaciones Web</p>
-                <a href="https://github.com/ortizzxz" target="_blank" class="btn-github">Visita mi GitHub</a>
-              </div>
-            </div>
-          </section>
-          
-          <!-- trabajos -->
+      <section id="hero" class="hero">
+        <div class="hero-content">
+          <div class="hero-image">
+            <img
+              src="./hero-bg.jpg"
+              alt="Jesús Ortiz"
+              class="img-presentacion"
+            />
+          </div>
+          <div class="hero-text">
+            <h1>Jesús Ortiz</h1>
+            <p>Desarrollador de Aplicaciones Web</p>
+            <a
+              href="https://github.com/ortizzxz"
+              target="_blank"
+              class="btn-hero"
+              >Visita mi GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/jesusdortizreyes/"
+              target="_blank"
+              class="btn-hero"
+              >Visita mi LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
 
-          <section id="trabajos">
-            <h2>Mis Proyectos</h2>
-            <div class="galeria">
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 1" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 1</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 2" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 2</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 3" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 3</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 4" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 4</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 5" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 5</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./hero-bg.jpg" alt="Proyecto 6" />
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Proyecto 6</h3>
-                            <p>Descripción breve del proyecto</p>
-                            <a href="#" class="btn-ver">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </div>
+      <!-- trabajos -->
+
+      <section id="trabajos">
+        <h2>Mis Proyectos</h2>
+        <div class="galeria">
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 1" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 1</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
             </div>
-        </section>
-        
-        
+          </div>
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 2" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 2</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 3" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 3</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 4" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 4</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 5" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 5</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="./hero-bg.jpg" alt="Proyecto 6" />
+            <div class="overlay">
+              <div class="info">
+                <h3>Proyecto 6</h3>
+                <p>Descripción breve del proyecto</p>
+                <a href="#" class="btn-ver">Ver Proyecto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!--SOBRE MI-->
       <section id="sobre-mi">
         <h2>Sobre Mí</h2>
@@ -130,13 +151,9 @@
           </div>
           <div class="parrafo-acercademi">
             <p>
-              ¡Hola! Soy un desarrollador backend apasionado por la creación de
-              sistemas robustos y escalables, con una inclinación natural hacia
-              el uso de Java y Spring. Me encanta sumergirme en el mundo del
-              backend, donde cada línea de código es una pieza clave en el
-              funcionamiento de sistemas complejos. Disfruto especialmente el
-              proceso de diseño de arquitectura de software, así como de
-              implementar soluciones eficientes y adaptables.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Temporibus similique, placeat eum debitis ducimus saepe ab quaerat
+              esse veniam tenetur?
             </p>
           </div>
         </div>
@@ -148,40 +165,83 @@
         <h2>Habilidades</h2>
         <div class="contenedor-habilidades">
           <div class="habilidad-card">
-            <i class="fab fa-html5"></i>
-            <h3>HTML5</h3>
+            <div class="habilidad-teory">
+              <i class="fab fa-html5"></i>
+              <h3>HTML5</h3>
+            </div>
             <progress value="90" max="100"></progress>
             <span>90%</span>
           </div>
           <div class="habilidad-card">
-            <i class="fab fa-css3-alt"></i>
-            <h3>CSS3</h3>
+            <div class="habilidad-teory">
+              <i class="fab fa-css3-alt"></i>
+              <h3>CSS3</h3>
+            </div>
             <progress value="85" max="100"></progress>
             <span>85%</span>
           </div>
           <div class="habilidad-card">
-            <i class="fab fa-js"></i>
-            <h3>JavaScript</h3>
+            <div class="habilidad-teory">
+              <i class="fab fa-js"></i>
+              <h3>JavaScript</h3>
+            </div>
             <progress value="75" max="100"></progress>
             <span>75%</span>
           </div>
           <div class="habilidad-card">
-            <i class="fab fa-php"></i>
-            <h3>PHP</h3>
+            <div class="habilidad-teory">
+              <i class="fab fa-php"></i>
+              <h3>PHP</h3>
+            </div>
             <progress value="80" max="100"></progress>
             <span>80%</span>
           </div>
           <div class="habilidad-card">
-            <i class="fab fa-java"></i>
-            <h3>Java</h3>
+            <div class="habilidad-teory">
+              <i class="fab fa-java"></i>
+              <h3>Java</h3>
+            </div>
             <progress value="85" max="100"></progress>
             <span>85%</span>
           </div>
           <div class="habilidad-card">
-            <i class="fas fa-code-branch"></i>
-            <h3>Spring Framework</h3>
+            <div class="habilidad-teory">
+              <i class="fas fa-code-branch"></i>
+              <h3>Spring Framework</h3>
+            </div>
             <progress value="80" max="100"></progress>
             <span>80%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Servicios -->
+      <section id="servicios">
+        <h2>Mis Servicios</h2>
+        <div class="contenedor-servicios">
+          <div class="servicio-card">
+            <i class="fas fa-desktop"></i>
+            <h3>Arquitecto Back-End</h3>
+            <p>
+              Diseño de la estructura del servidor, arquitectura general del sistema backend, bases de datos, servidores y APIs. 
+              Toma de decisiones sobre las tecnologías y frameworks.
+            </p>
+          </div>
+          <div class="servicio-card">
+            <i class="fas fa-server"></i>
+            <h3>Desarrollador Back-End</h3>
+            <p>
+              Desarrollo de lógica de servidor, APIs y manejo de bases de datos
+              con tecnologías como PHP, Java y Spring Framework.
+            </p>
+          </div>
+          <div class="servicio-card">
+            <i class="fas fa-paint-brush"></i>
+            <h3>Diseñador Web</h3>
+            <p>
+              Creación de diseños únicos y atractivos que reflejan la identidad
+              de tu marca, optimizados para una experiencia de usuario ideal.
+            </p>
           </div>
         </div>
       </section>
@@ -223,13 +283,15 @@
     </main>
 
     <footer>
-        <p class="footer-redes">
-            <a href="#" aria-label="GitHub" class="icon-link"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="LinkedIn" class="icon-link"><i class="fab fa-linkedin"></i></a>
-        </p>
-        <p>&copy; 2024 Jesús Ortiz</p>
+      <p class="footer-redes">
+        <a href="#" aria-label="GitHub" class="icon-link"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="#" aria-label="LinkedIn" class="icon-link"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </p>
+      <p>&copy;2024 Jesús Ortiz</p>
     </footer>
-    
-
   </body>
 </html>

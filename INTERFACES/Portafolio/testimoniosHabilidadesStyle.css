@@ -1,0 +1,151 @@
+/* -------------------- Testimonios -------------------- */
+#testimonios {
+  margin: 0 1rem 0 1rem;
+}
+
+#testimonios h2 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--color-secundario);
+}
+
+/* Contenedor de tarjetas */
+.testimonios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 100dvw;
+  margin: 0 auto;
+}
+
+/* Estilos para las tarjetas de testimonios */
+.testimonio-card {
+  background: var(--color-card);
+  border-left: 5px solid var(--color-primario);
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(33.33% - 20px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.testimonio-card h3 {
+  font-size: 1.2em;
+  color: var(--color-secundario);
+  margin-bottom: 10px;
+}
+
+.testimonio-card p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6em;
+}
+
+/* -------------------- Habilidades -------------------- */
+#habilidades {
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#habilidades h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
+/* Contenedor flexible para las tarjetas */
+.contenedor-habilidades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Tarjetas de habilidad */
+.habilidad-card {
+  padding: 1rem 5rem 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 20px);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habilidad-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Iconos en las tarjetas */
+.habilidad-card i {
+  font-size: 2.5em;
+  color: var(--color-primario);
+  margin-bottom: 10px;
+}
+
+/* Nombre de la habilidad */
+.habilidad-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: var(--color-secundario);
+}
+
+/* Barra de progreso en la tarjeta */
+.habilidad-card progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 15px 0;
+  background-color: #e0e0e0; /* Fondo general de la barra */
+}
+
+.habilidad-card progress::-webkit-progress-bar {
+  background-color: #e0e0e0; /* Fondo para navegadores basados en WebKit */
+  border-radius: 5px;
+}
+
+.habilidad-card progress::-webkit-progress-value {
+  background-color: #007bff; /* Cambia por el color que prefieras */
+  transition: width 0.6s ease; /* Transición suave */
+  border-radius: 5px; /* Suaviza los bordes */
+}
+
+.habilidad-card progress::-moz-progress-bar {
+  background-color: #007bff; /* Cambia por el color que prefieras */
+  transition: width 0.6s ease; /* Transición suave */
+  border-radius: 5px; /* Suaviza los bordes */
+}
+
+/* Compatibilidad con navegadores más antiguos */
+.habilidad-card progress::-ms-fill {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+}
+
+
+/* Porcentaje */
+.habilidad-card span {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+#contenedor-servicios,
+.testimonios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+

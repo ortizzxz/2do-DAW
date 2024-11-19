@@ -1,0 +1,81 @@
+
+/* -------------------- Contacto -------------------- */
+#contacto {
+    padding: 2rem 2rem;
+    max-width: 50rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin: 1rem auto;
+  }
+  
+  /* Estilo del título */
+  #contacto h2 {
+    font-size: 2em;
+    color: var(--color-secundario);
+  }
+  
+  /* Estilo del formulario */
+  #form-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #form-contacto input,
+  #form-contacto textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-secundario);
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    font-size: 1em;
+  }
+  
+  #form-contacto input:focus,
+  #form-contacto textarea:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+  
+  #form-contacto textarea {
+    height: 6rem;
+    resize: vertical;
+  }
+  
+  /* Estilo del botón */
+  #form-contacto button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--color-primario);
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  #form-contacto button:hover {
+    background-color: #2879b4;
+    transform: translateY(-2px);
+  }
+  
+  #form-contacto button:active {
+    transform: translateY(1px);
+  }
+  
+y  #form-contacto input::placeholder,
+  #form-contacto textarea::placeholder {
+    color: #bbb;
+    transition: color 0.3s ease;
+  }
+  
+  #form-contacto input:focus::placeholder,
+  #form-contacto textarea:focus::placeholder {
+    color: transparent;
+  }
