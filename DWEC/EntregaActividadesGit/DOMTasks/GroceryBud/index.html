@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Bud</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .grocery-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .grocery-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .edit, .delete{
+            background: white;
+        }
+
+        .edit-delete {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit-delete button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .clear-items {
+            color: #ff4d4d;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grocery Bud</h1>
+        <input type="text" placeholder="Add a grocery item...">
+        <button>Add Item</button>
+        <button id="clear">Clear List</button>
+        <ul class="grocery-list"></ul>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
