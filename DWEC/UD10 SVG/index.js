@@ -3,7 +3,7 @@ window.onload = () => {
     let pelotas = new Array();
     let svgPadre = document.getElementById("svgPadre");
 
-    for (let index = 0; index < 10000000000; index++) {
+    for (let index = 0; index < 10; index++) {
         pelotas.push(new Bola(svgPadre));
     }
 
@@ -17,11 +17,11 @@ window.onload = () => {
 
 class Bola {
     constructor(svgPadre) {
-        this.posicionX = getRandomArbitrary(1, 1300);
-        this.posicionY = getRandomArbitrary(1, 500);
+        this.posicionX = getRandomArbitrary(50, 1300);
+        this.posicionY = getRandomArbitrary(50, 500);
         this.limiteX = 1340;
         this.limiteY = 580;
-        this.radio = 5;
+        this.radio = 50;
         this.velocidadX = (Math.random() - 0.5) * 10; 
         this.velocidadY = (Math.random() - 0.5) * 10; 
         this.stroke = 'green';
