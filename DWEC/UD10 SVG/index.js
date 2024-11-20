@@ -3,7 +3,7 @@ window.onload = () => {
     let pelotas = new Array();
     let svgPadre = document.getElementById("svgPadre");
 
-    for (let index = 0; index < 1; index++) {
+    for (let index = 0; index < 10000000000; index++) {
         pelotas.push(new Bola(svgPadre));
     }
 

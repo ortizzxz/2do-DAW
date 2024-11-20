@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PingPong</title>
+    <script src="script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #282c34;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      #game-container {
+        border: 3px solid #61dafb;
+        position: relative;
+        width: 800px;
+        height: 500px;
+      }
+
+      svg {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-container">
+        <svg width="800" height="500">
+            <rect id="paletaIzq" x="20" y="200" width="10" height="100" fill="blue" />
+            <rect id="paletaDer" x="770" y="200" width="10" height="100" fill="red" />
+            <circle id="bola" cx="400" cy="250" r="8" fill="black" />
+        </svg>
+        <div style="display: flex; justify-content: space-between; width: 800px; margin-top: 10px;">
+            <span id="puntosIzq">0</span>
+            <span id="puntosDer">0</span>
+        </div>
+        
+    </div>
+  </body>
+</html>
