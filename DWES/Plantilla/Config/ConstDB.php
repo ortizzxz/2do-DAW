@@ -1,6 +1,6 @@
 <?php
     const SERVERNAME = 'localhost';
-    const DATABASE = 'empresa';
+    const DATABASE = 'tienda';
     const USERNAME = 'root';
     const PASSWORD = '';
 ?>

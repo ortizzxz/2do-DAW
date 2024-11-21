@@ -1,5 +1,5 @@
 <?php
-    require 'constDB.php';
+    require './Library/ConstDB.php';
 
     try{
         $bd = new PDO("mysql:host=" . SERVERNAME . "; dbname=" . DATABASE . "; charset=utf8mb4", USERNAME, PASSWORD);

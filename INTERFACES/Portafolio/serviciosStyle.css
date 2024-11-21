@@ -1,8 +1,9 @@
 /* Sección Mis Servicios */
 #servicios {
-    padding: 50px 20px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 1rem;
+    border-radius: 0.8rem;
     text-align: center;
-    background-color: #f8f9fa; /* Fondo claro */
   }
   
   #servicios h2 {
@@ -14,7 +15,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: center;  
   }
   
   .servicio-card {

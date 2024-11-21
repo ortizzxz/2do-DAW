@@ -149,7 +149,12 @@
 }
 
 #contacto{
-  margin: 0rem 1rem 2rem 1rem;
+  margin: 1rem 1rem 2rem 1rem;
 
+}
+
+#habilidades{
+  margin: 0rem 1rem;
+  padding: 0.1rem 0rem 1rem 0rem;
 }
 }
