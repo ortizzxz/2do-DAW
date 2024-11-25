@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="serviciosStyle.css" />
-    <link rel="stylesheet" href="acercaDeStyle.css" />
-    <link rel="stylesheet" href="contactoStyle.css" />
-    <link rel="stylesheet" href="testimoniosHabilidadesStyle.css" />
-    <link rel="stylesheet" href="heroTrabajoStyle.css" />
-    <link rel="stylesheet" href="headerStyle.css" />
-    <link rel="stylesheet" href="responsiveness.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/serviciosStyle.css" />
+    <link rel="stylesheet" href="./styles/acercaDeStyle.css" />
+    <link rel="stylesheet" href="./styles/contactoStyle.css" />
+    <link rel="stylesheet" href="./styles/testimoniosHabilidadesStyle.css" />
+    <link rel="stylesheet" href="./styles/heroTrabajoStyle.css" />
+    <link rel="stylesheet" href="./styles/headerStyle.css" />
+    <link rel="stylesheet" href="./styles/responsiveness.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -46,7 +46,7 @@
         <div class="hero-content">
           <div class="hero-image">
             <img
-              src="./hero-bg.jpg"
+              src="./imgs/personalImage.JPG"
               alt="Jesús Ortiz"
               class="img-presentacion"
             />
@@ -54,18 +54,20 @@
           <div class="hero-text">
             <h1>Jesús Ortiz</h1>
             <p>Desarrollador de Aplicaciones Web</p>
-            <a
-              href="https://github.com/ortizzxz"
-              target="_blank"
-              class="btn-hero"
-              >Visita mi GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/jesusdortizreyes/"
-              target="_blank"
-              class="btn-hero"
-              >Visita mi LinkedIn</a
-            >
+            <div class="all-btn-hero">
+                <a
+                href="https://github.com/ortizzxz"
+                target="_blank"
+                class="btn-hero"
+                >GitHub</a
+                >
+                <a
+                href="https://www.linkedin.com/in/jesusdortizreyes/"
+                target="_blank"
+                class="btn-hero"
+                >LinkedIn</a
+                >
+            </div>
           </div>
         </div>
       </section>
@@ -76,66 +78,55 @@
         <h2>Mis Proyectos</h2>
         <div class="galeria">
           <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 1" />
+            <img src="./imgs/ahorcado.jpg" alt="Ahorcado" />
             <div class="overlay">
               <div class="info">
-                <h3>Proyecto 1</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
+                <h3>Ahorcado</h3>
+                <p>Adivina la palabra o muere</p>
+                <a href="https://github.com/ortizzxz" class="btn-ver">GitHub</a>
               </div>
             </div>
           </div>
           <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 2" />
+            <img src="./imgs/pairsGame.png" alt="Pairs Game" />
             <div class="overlay">
               <div class="info">
-                <h3>Proyecto 2</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
+                <h3>Pairs Game</h3>
+                <p>Memoriza los pares</p>
+                <a href="https://github.com/ortizzxz" class="btn-ver">GitHub</a>
               </div>
             </div>
           </div>
           <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 3" />
+            <img src="./imgs/pong.png" alt="Pong" />
             <div class="overlay">
               <div class="info">
-                <h3>Proyecto 3</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
+                <h3>Pong</h3>
+                <p>Clásico juego de Ping Pong</p>
+                <a href="https://github.com/ortizzxz" class="btn-ver">GitHub</a>
               </div>
             </div>
           </div>
           <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 4" />
+            <img src="./imgs/ticTacToe.avif" alt="ticTacToe" />
             <div class="overlay">
               <div class="info">
-                <h3>Proyecto 4</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
+                <h3>TicTacToe</h3>
+                <p>Tres en Raya</p>
+                <a href="https://github.com/ortizzxz" class="btn-ver">GitHub</a>
               </div>
             </div>
           </div>
           <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 5" />
+            <img src="./imgs/todoList.jpg" alt="todo List" />
             <div class="overlay">
               <div class="info">
-                <h3>Proyecto 5</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
+                <h3>ToDo List </h3>
+                <p>Lista de tareas para hacer</p>
+                <a href="https://github.com/ortizzxz" class="btn-ver">GitHub</a>
               </div>
             </div>
           </div>
-          <div class="proyecto">
-            <img src="./hero-bg.jpg" alt="Proyecto 6" />
-            <div class="overlay">
-              <div class="info">
-                <h3>Proyecto 6</h3>
-                <p>Descripción breve del proyecto</p>
-                <a href="#" class="btn-ver">Ver Proyecto</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!--SOBRE MI-->
@@ -144,16 +135,16 @@
         <div class="acerca-demi">
           <div class="img-acercademi">
             <img
-              src="./hero-bg.jpg"
-              alt="Foto de Juan Pérez"
+              src="./imgs/hero-bg.jpg"
+              alt="Foto de Jesús Ortiz"
               class="foto-perfil"
             />
           </div>
           <div class="parrafo-acercademi">
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Temporibus similique, placeat eum debitis ducimus saepe ab quaerat
-              esse veniam tenetur?
+              Desarrollador de Aplicaciones Web con amplio abanico
+              de Frameworks para los lenguages de más porcentaje de de uso en el 
+              mundo de desarrollo web.
             </p>
           </div>
         </div>
@@ -291,7 +282,7 @@
           ><i class="fab fa-linkedin"></i
         ></a>
       </p>
-      <p>&copy;2024 Jesús Ortiz</p>
+      <p>&copy; 2024 Jesús Ortiz</p>
     </footer>
   </body>
 </html>

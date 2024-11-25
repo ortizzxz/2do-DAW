@@ -1,0 +1,56 @@
+/* Sección Mis Servicios */
+#servicios {
+    padding: 0.5rem 1rem;
+    margin: 1rem 1rem;
+    border-radius: 0.8rem;
+    text-align: center;
+  }
+  
+  #servicios h2 {
+    font-size: 2em;
+    color: #133940;
+  }
+  
+  .contenedor-servicios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3rem;
+    justify-content: center;  
+  }
+  
+  .servicio-card {
+    background: var(--color-card);
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    border-left: 0.3rem solid var(--color-primario);
+    flex: 1 1 calc(30% - 20px); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+
+  .servicio-card i {
+    font-size: 3rem;
+    color: var(--color-titulo);
+    margin-bottom: 0;
+  }
+  
+  .servicio-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: var(--color-titulo);
+  }
+  
+  .servicio-card p {
+    font-size: 1rem;
+    color: var(--color-texto);
+    line-height: 1.5rem;
+    text-align: left;
+}
+  
+  .servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  

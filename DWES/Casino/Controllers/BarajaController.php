@@ -40,11 +40,11 @@ class BarajaController{
     }
 
     public function repartirCartas($numJugadores){
-        $modulo = 40 % 3;
-        $cartasPorJugador = ((40 - $modulo) / $numJugadores);
+        $cartasMazo = 40;
+        $modulo = $cartasMazo % $numJugadores;
+        $cartasPorJugador = (($cartasMazo - $modulo) / $numJugadores);
         
         $manos = $this->baraja->repartirCartas($numJugadores, $cartasPorJugador);
-        echo $cartasPorJugador;
         $this->pages->render('Baraja/muestraManos', ['manos' => $manos]);
     }
 }
