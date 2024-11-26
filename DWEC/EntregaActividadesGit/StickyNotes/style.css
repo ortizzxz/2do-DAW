@@ -37,7 +37,7 @@ body {
 
 #btns{
   display: flex;
-  justify-content: center;
+  justify-content: centers;
 }
 
 #add-note-btn, #delete-note-btn {

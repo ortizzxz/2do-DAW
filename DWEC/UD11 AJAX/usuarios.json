@@ -1,0 +1,19 @@
+{
+    "usuarios":[
+        {
+            "nombre": "jesús",
+            "apellido": "ortiz",
+            "edad": 30,
+            "telefono": [
+                "624617020",
+                "624598657"
+            ]
+        },
+        {
+            "nombre": "carlos",
+            "apellido": "moline",
+            "edad": 21,
+            "ubicacion": "chipre" 
+        }
+    ]
+}
