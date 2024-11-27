@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Parkinsans", sans-serif;
+}
+
+/* -------------------- Peliculas -------------------- */
+#trabajos {
+  padding: 1rem 2.5rem;
+  text-align: center;
+}
+
+#trabajos h1 {
+  font-size: 2em;
+  font-weight: 450;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.proyecto {
+  position: relative;
+  width: 22vw;
+  height: 50vh;
+  border-radius: 0.8rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.proyecto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.info {
+  color: #fff;
+}
+
+.proyecto:hover .overlay {
+  opacity: 1;
+}
+
+.info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.info p {
+  margin-bottom: 1.2rem;
+}
+
+.btn-ver {
+  padding: 1rem 1rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.7rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ver:hover {
+  background-color: #0056b3;
+}
+
+input {
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#searchBtn {
+  padding: 10px;
+  background-color: #007bff;
+  border-radius: 0.3rem;
+}
