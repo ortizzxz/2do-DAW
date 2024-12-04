@@ -1,0 +1,22 @@
+{
+    "name": "jesus/proyecto",
+    "autoload": {
+        "psr-4": {
+            "Jesus\\Proyecto\\": "src/",
+            "Lib\\": "./src/Lib/",
+            "Config\\": "./src/config/",
+            "Models\\": "./src/models/",
+            "Services\\": "./src/services/",
+            "Controllers\\": "./src/controllers/",
+            "Repositories\\": "./src/repositories/",
+            "Views\\": "./src/views/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jesusO",
+            "email": "jesusdortiz18@gmail.com"
+        }
+    ],
+    "require": {}
+}
