@@ -81,7 +81,7 @@ window.onload = () => {
         }
 
         if (bolaX - bolaRadio <= 30 && bolaY >= jugadorIzqY && bolaY <= jugadorIzqY + alturaPaleta) {
-            bolaXVel *= -1.05;
+            bolaXVel *= 1.05;
         }
 
         if (bolaX + bolaRadio >= 770 && bolaY >= jugadorDerY && bolaY <= jugadorDerY + alturaPaleta) {

@@ -1,0 +1,10 @@
+Al igual q ocurre en el portal de rtve, la búsqueda se lanza automáticamente cuando ya 
+llevamos al menos 3 caracteres introducidos.
+
+En el detalle se muestran tantas valoraciones como nos proporcione la API.
+
+Una vez tenemos un listado de películas aparecerá la opción de "Crear Informe", donde se mostrará en otra vista:
+    Ver películas más valoradas por imdbRating (5), películas con mayor recaudación (5) o películas más votadas (5)
+    A la vez que se genera el listado anterior se creará una gráfica que represente el dato correspondiente.
+
+    

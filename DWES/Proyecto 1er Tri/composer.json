@@ -1,0 +1,21 @@
+{
+    "name": "jesusortiz/proyecto-teatro",
+    "description": "Proyecto personal para el primer trimestre de DWES dedicado a las WebApp de un gestor de reservas de un teatro",
+    "autoload": {
+        "psr-4": {
+            "Jesusortiz\\ProyectoTeatro\\": "src/",
+            "Controllers\\": "src/Controllers/",
+            "Models\\": "src/Models/",
+            "Views\\": "src/Views/",
+            "Services\\": "src/Services/",
+            "Repositories\\": "src/Repositories/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jesusO",
+            "email": "jesusdortiz18@gmail.com"
+        }
+    ],
+    "require": {}
+}
