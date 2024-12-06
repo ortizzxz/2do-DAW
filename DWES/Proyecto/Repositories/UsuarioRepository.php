@@ -188,7 +188,7 @@ class UsuarioRepository
      */
     public function resetPasswordWithToken($token, $newPassword)
     {
-        $sql = "SELECT id FROM usuario WHERE reset_token = :token LIMIT 1";
+        $sql = "SELECT * FROM usuario WHERE reset_token = :token LIMIT 1";
         $stmt = $this->conexion->prepare($sql);
         $stmt->bindParam(':token', $token, PDO::PARAM_STR);
         $stmt->execute();
@@ -200,11 +200,12 @@ class UsuarioRepository
             $updateStmt = $this->conexion->prepare($updateSql);
             $updateStmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
             $updateStmt->bindParam(':id', $user['id'], PDO::PARAM_INT);
-            return $updateStmt->execute();
+            return $updateStmt->execute();  // Devuelve true si se ejecuta correctamente
         }
 
-        return false;
+        return false;  // No encontró el token o no pudo actualizar la contraseña
     }
+
 
     /**
      * Restablece la contraseña de un usuario usando su correo electrónico.

@@ -231,33 +231,10 @@ class UsuarioController
             $confirmPassword = $_POST['confirm_password'];
 
             if ($newPassword === $confirmPassword) {
-                if ($this->service->resetPasswordWithToken($token, $newPassword)) {
-                    $this->pages->render("auth/success");
-                } else {
-                    $this->pages->render('auth/reset_password', ['error' => 'No se pudo restablecer la contraseña']);
-                }
-            } else {
-                $this->pages->render('auth/reset_password', ['error' => 'Las contraseñas no coinciden']);
+                $this->pages->render("auth/success");
             }
-        }
-    }
-
-    public function updatePassword()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $correo = $_POST['email'];
-            $newPassword = $_POST['new_password'];
-            $confirmPassword = $_POST['confirm_password'];
-
-            if ($newPassword === $confirmPassword) {
-                if ($this->service->resetPassword($correo, $newPassword)) {
-                    $this->pages->render("auth/success");
-                } else {
-                    $this->pages->render('auth/reset_password', ['error' => 'No se pudo restablecer la contraseña']);
-                }
-            } else {
-                $this->pages->render('auth/reset_password', ['error' => 'Las contraseñas no coinciden']);
-            }
+        } else {
+            $this->pages->render('auth/reset_password', ['error' => 'Las contraseñas no coinciden']);
         }
     }
 }

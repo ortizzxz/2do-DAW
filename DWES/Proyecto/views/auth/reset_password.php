@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -29,6 +30,10 @@
         h2 {
             color: #333;
             margin-bottom: 20px;
+        }
+
+        p{
+            color: red;
         }
 
         form {
@@ -89,13 +94,17 @@
             text-decoration: underline;
         }
 
+        #defaultHeader{
+            display: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h2>Restablecer Contraseña</h2>
-        <form action="<?php echo BASE_URL; ?>?controller=Usuario&action=updatePassword" method="post">
+        <p><?php echo htmlspecialchars($error ?? 'Ha ocurrido un error inesperado.'); ?></p>
+        <form action="<?php echo BASE_URL; ?>?controller=Usuario&action=updatePasswordWithToken" method="post">
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
