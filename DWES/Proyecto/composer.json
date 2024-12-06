@@ -1,15 +1,14 @@
 {
-    "name": "jesus/proyecto",
+    "name": "jesus/teatro",
+    "type": "project",
     "autoload": {
         "psr-4": {
-            "Jesus\\Proyecto\\": "src/",
-            "Lib\\": "./src/Lib/",
-            "Config\\": "./src/config/",
-            "Models\\": "./src/models/",
-            "Services\\": "./src/services/",
-            "Controllers\\": "./src/controllers/",
-            "Repositories\\": "./src/repositories/",
-            "Views\\": "./src/views/"
+            "Jesus\\Teatro\\": "./",
+            "Controllers\\": "./Controllers",
+            "Lib\\": "./Lib",
+            "Models\\": "./Models",
+            "Repositories\\": "./Repositories",
+            "Services\\": "./Services"
         }
     },
     "authors": [
@@ -18,5 +17,8 @@
             "email": "jesusdortiz18@gmail.com"
         }
     ],
-    "require": {}
+    "minimum-stability": "stable",
+    "require": {
+        "setasign/fpdf": "^1.8"
+    }
 }

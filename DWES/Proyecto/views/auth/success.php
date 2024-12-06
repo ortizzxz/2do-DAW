@@ -1,0 +1,1 @@
+<h1>Registro exitoso, verfique su email</h1>

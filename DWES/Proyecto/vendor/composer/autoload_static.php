@@ -4,13 +4,9 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit02e76f320300543416ef12f72ad79f03
+class ComposerStaticInit7b189c0added103e124db8c133494080
 {
     public static $prefixLengthsPsr4 = array (
-        'V' => 
-        array (
-            'Views\\' => 6,
-        ),
         'S' => 
         array (
             'Services\\' => 9,
@@ -29,60 +25,52 @@ class ComposerStaticInit02e76f320300543416ef12f72ad79f03
         ),
         'J' => 
         array (
-            'Jesus\\Proyecto\\' => 15,
+            'Jesus\\Teatro\\' => 13,
         ),
         'C' => 
         array (
             'Controllers\\' => 12,
-            'Config\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Views\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/views',
-        ),
         'Services\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/services',
+            0 => __DIR__ . '/../..' . '/Services',
         ),
         'Repositories\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/repositories',
+            0 => __DIR__ . '/../..' . '/Repositories',
         ),
         'Models\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/models',
+            0 => __DIR__ . '/../..' . '/Models',
         ),
         'Lib\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Lib',
+            0 => __DIR__ . '/../..' . '/Lib',
         ),
-        'Jesus\\Proyecto\\' => 
+        'Jesus\\Teatro\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/',
         ),
         'Controllers\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/controllers',
-        ),
-        'Config\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/config',
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit02e76f320300543416ef12f72ad79f03::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit02e76f320300543416ef12f72ad79f03::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit02e76f320300543416ef12f72ad79f03::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7b189c0added103e124db8c133494080::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7b189c0added103e124db8c133494080::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7b189c0added103e124db8c133494080::$classMap;
 
         }, null, ClassLoader::class);
     }

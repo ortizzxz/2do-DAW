@@ -7,11 +7,10 @@
 </head>
 <body>
     <?php
-        require_once "./vendor/autoload.php";  
-        require_once "./src/Config/config.php"; 
+        require_once './vendor/autoload.php';
+        require_once "./Config/config.php";
         
         use Controllers\FrontController;
-        
         FrontController::main();
     ?>
 </body>
