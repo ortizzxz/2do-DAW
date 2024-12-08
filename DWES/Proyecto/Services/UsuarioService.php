@@ -126,7 +126,7 @@ class UsuarioService
      */
     public function resetPasswordWithToken($token, $newPassword)
     {
-        $this->repository->resetPasswordWithToken($token, $newPassword);
+        return $this->repository->resetPasswordWithToken($token, $newPassword);
     }
 
     /**

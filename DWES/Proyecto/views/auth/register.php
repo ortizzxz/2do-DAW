@@ -38,7 +38,21 @@ $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true)
         h1 {
             color: #333;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
+        }
+
+        p{
+            text-align: center;
+            background-color: wheat;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        p a{
+            text-decoration: none;
+            color: black;
         }
 
         .errors {
@@ -99,7 +113,7 @@ $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true)
 <body>
     <div class="container">
         <h1>Registro de Usuario</h1>
-        
+        <p><a href="<?php echo BASE_URL; ?>?controller=Admin&action=dashboard">Volver al Dashboard Admin</a></p>
         <?php if (!empty($errors)): ?>
             <div class="errors">
                 <ul>

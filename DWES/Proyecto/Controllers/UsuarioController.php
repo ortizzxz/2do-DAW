@@ -224,17 +224,30 @@ class UsuarioController
     }
 
     public function updatePasswordWithToken()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $token = $_POST['token'];
-            $newPassword = $_POST['new_password'];
-            $confirmPassword = $_POST['confirm_password'];
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $token = $_POST['token'];
+        $newPassword = $_POST['new_password'];
+        $confirmPassword = $_POST['confirm_password'];
 
-            if ($newPassword === $confirmPassword) {
+        if ($newPassword === $confirmPassword) {
+            if ($this->service->resetPasswordWithToken($token, $newPassword)) {
                 $this->pages->render("auth/success");
+            } else {
+                $this->pages->render('auth/reset_password', [
+                    'error' => 'No se pudo restablecer la contraseña. Inténtalo más tarde.',
+                    'token' => $token
+                ]);
             }
         } else {
-            $this->pages->render('auth/reset_password', ['error' => 'Las contraseñas no coinciden']);
+            $this->pages->render('auth/reset_password', [
+                'error' => 'Las contraseñas no coinciden',
+                'token' => $token
+            ]);
         }
+    } else {
+        $this->pages->render('auth/reset_password', ['error' => 'Método no permitido']);
     }
+}
+
 }

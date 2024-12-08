@@ -176,7 +176,7 @@ class UsuarioRepository
      */
     public function getUserByResetToken($token)
     {
-        $sql = "SELECT id, email, usuario FROM usuario WHERE reset_token = :token LIMIT 1";
+        $sql = "SELECT * FROM usuario WHERE reset_token = :token LIMIT 1";
         $stmt = $this->conexion->prepare($sql);
         $stmt->bindParam(':token', $token, PDO::PARAM_STR);
         $stmt->execute();
@@ -188,22 +188,30 @@ class UsuarioRepository
      */
     public function resetPasswordWithToken($token, $newPassword)
     {
-        $sql = "SELECT * FROM usuario WHERE reset_token = :token LIMIT 1";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bindParam(':token', $token, PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Intentar obtener el usuario asociado al token
+        $user = $this->getUserByResetToken($token);
 
         if ($user) {
+            // Generar el hash de la nueva contraseña
             $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-            $updateSql = "UPDATE usuario SET password = :password, reset_token = NULL, primer_login = 0 WHERE id = :id";
-            $updateStmt = $this->conexion->prepare($updateSql);
-            $updateStmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-            $updateStmt->bindParam(':id', $user['id'], PDO::PARAM_INT);
-            return $updateStmt->execute();  // Devuelve true si se ejecuta correctamente
-        }
 
-        return false;  // No encontró el token o no pudo actualizar la contraseña
+            // Actualizar la contraseña y eliminar el token
+            $sql = "UPDATE usuario SET password = :password, reset_token = NULL, primer_login = 0 WHERE id = :id";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $user['id'], PDO::PARAM_INT);
+
+            // Ejecutar y verificar si se afectó una fila
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                return true; // Contraseña actualizada correctamente
+            } else {
+                error_log("Error: No se actualizó ninguna fila para el token {$token} y el usuario con ID {$user['id']}");
+                return false; // No se actualizó ninguna fila
+            }
+        }
+        error_log("Error: Token inválido o usuario no encontrado para el token {$token}");
+        return false; // Usuario no encontrado o token inválido
     }
 
 

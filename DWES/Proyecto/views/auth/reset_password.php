@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,7 @@
             margin-bottom: 20px;
         }
 
-        p{
+        p {
             color: red;
         }
 
@@ -94,29 +95,39 @@
             text-decoration: underline;
         }
 
-        #defaultHeader{
+        #defaultHeader {
             display: none;
         }
     </style>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const newPassword = document.getElementById('new_password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (newPassword !== confirmPassword) {
+                e.preventDefault(); // Evita el envío del formulario
+                alert('Las contraseñas no coinciden. Por favor, verifica e inténtalo de nuevo.');
+            }
+        });
+    </script>
+
 </head>
+
 <body>
 
     <div class="container">
         <h2>Restablecer Contraseña</h2>
-        <p><?php echo htmlspecialchars($error ?? 'Ha ocurrido un error inesperado.'); ?></p>
+        <p><?php echo htmlspecialchars($error ?? ''); ?></p>
         <form action="<?php echo BASE_URL; ?>?controller=Usuario&action=updatePasswordWithToken" method="post">
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            
             <label for="new_password">Nueva Contraseña:</label>
             <input type="password" id="new_password" name="new_password" required>
-            
+
             <label for="confirm_password">Confirmar Contraseña:</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
-            
+
             <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? ''); ?>">
-            
+
             <input type="submit" value="Restablecer Contraseña">
         </form>
 
@@ -126,4 +137,5 @@
     </div>
 
 </body>
+
 </html>
