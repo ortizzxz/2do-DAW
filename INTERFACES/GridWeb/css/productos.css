@@ -1,0 +1,171 @@
+/* Contenedor de los productos */
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+  gap: 2rem;  /* Espacio entre los productos */
+  padding: 3rem 2rem;
+}
+
+/* Título de la categoría de productos */
+#productoCategoriaTitulo {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* Producto individual */
+.producto {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover en los productos */
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+/* Imagen del producto */
+.producto-imagenes {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 1rem;
+}
+
+.producto-carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.producto-carrusel-imagenes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.producto-imagen.active {
+  display: block;
+}
+
+/* Botones de flecha */
+.flecha {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+
+.flecha:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.flecha-izquierda {
+  left: 10px;
+}
+
+.flecha-derecha {
+  right: 10px;
+}
+
+/* Estilo del título y el precio del producto */
+.producto h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.producto p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* Botón de compra */
+.btn-comprar {
+  margin-top: 1rem;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-comprar:hover {
+  background-color: #444;
+}
+
+/* Responsive Design */
+
+/* Para pantallas de tabletas (max-width: 768px) */
+@media (max-width: 768px) {
+  .productos-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tabletas */
+  }
+
+  .producto {
+    padding: 1rem; /* Reducir padding de los productos en tabletas */
+  }
+
+  .producto h3 {
+    font-size: 1.1rem; /* Ajustar tamaño del título */
+  }
+
+  .producto p {
+    font-size: 1rem; /* Ajustar tamaño del precio */
+  }
+
+  .producto-imagenes {
+    height: 200px; /* Reducir altura de la imagen en pantallas más pequeñas */
+  }
+}
+
+/* Para pantallas móviles (max-width: 576px) */
+@media (max-width: 576px) {
+  .productos-container {
+    grid-template-columns: 1fr; /* 1 columna en dispositivos móviles */
+  }
+
+  .producto {
+    padding: 0.8rem; /* Reducir padding aún más en móviles */
+  }
+
+  .producto h3 {
+    font-size: 1rem; /* Ajustar título más pequeño */
+  }
+
+  .producto p {
+    font-size: 0.9rem; /* Reducir tamaño del precio */
+  }
+
+  .producto-imagenes {
+    height: 180px; /* Ajustar la altura de la imagen en dispositivos más pequeños */
+  }
+
+  .btn-comprar {
+    padding: 0.4rem 0.8rem; /* Ajustar el tamaño del botón */
+  }
+}
