@@ -86,16 +86,13 @@ class ReservaController
             $resultado = $this->service->devolverButaca($butacaId, $userId);
 
             if ($resultado) {
-                $_SESSION['success'] = "Butaca devuelta con éxito.";
+                $this->pages->render('reserva/successReturn');
             } else {
                 $_SESSION['error'] = "No se pudo devolver la butaca.";
             }
         } else {
             $_SESSION['error'] = "Solicitud inválida.";
         }
-
-        header("Location: " . BASE_URL . "?controller=Reserva&action=viewReservations");
-        exit;
     }
 
     /**
