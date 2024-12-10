@@ -1,3 +1,7 @@
+#productos{
+  display: none;
+}
+
 /* Contenedor de los productos */
 .productos-container {
   display: grid;
@@ -109,6 +113,7 @@
   background-color: var(--accent-color);
   color: var(--primary-color);
   padding: 0.5rem 1rem;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -154,18 +159,18 @@
   }
 
   .producto h3 {
-    font-size: 1rem; /* Ajustar título más pequeño */
+    font-size: 1.4rem; /* Ajustar título más pequeño */
   }
 
   .producto p {
-    font-size: 0.9rem; /* Reducir tamaño del precio */
+    font-size: 1.2rem; /* Reducir tamaño del precio */
   }
 
   .producto-imagenes {
-    height: 180px; /* Ajustar la altura de la imagen en dispositivos más pequeños */
+    height: 260px; /* Ajustar la altura de la imagen en dispositivos más pequeños */
   }
 
   .btn-comprar {
-    padding: 0.4rem 0.8rem; /* Ajustar el tamaño del botón */
+    padding: 1rem
   }
 }

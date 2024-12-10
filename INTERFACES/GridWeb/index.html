@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="css/siguenos.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/productos.css" />
-
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/carrito.css" />
 
     <!-- Incluir FontAwesome -->
     <link
@@ -34,52 +35,143 @@
     <!-- Header -->
     <header class="header">
       <div class="logo">
-        <a href="/index.html"><h1>Ortiz&CO</h1></a>
+        <a href="#" id="inicio"><h1>Ortiz&CO</h1></a>
       </div>
       <nav>
         <ul>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Carrito</a></li>
-          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="#" id="inicioLink">Inicio</a></li>
+          <li><a href="#" id="loginLink">Login</a></li>
+          <li><a href="#" id="registerLink">Registrarse</a></li>
+          <li>
+            <a href="#" id="carritoLink"
+              >Carrito (<span id="carritoCount">0</span>)</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
 
     <!-- Sección Hero -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <h1>Bienvenido a Ortiz&Co</h1>
       <p>Encuentra productos exclusivos para ti</p>
     </section>
 
     <!-- Categorías -->
-    <section class="categorias">
-      <a href="productos.html?categoria=Clothes">
+    <section class="categorias" id="categorias">
+      <a href="?categoria=Clothes" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/ropa.jpg" alt="Ropa" />
           <h3>Ropa</h3>
         </div>
       </a>
 
-      <a href="productos.html?categoria=Shoes">
+      <a href="?categoria=Shoes" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/shoes.png" alt="Zapatos" />
           <h3>Zapatos</h3>
         </div>
       </a>
 
-      <a href="productos.html?categoria=Electronics">
+      <a href="?categoria=Electronics" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/tech.avif" alt="Electronics" />
           <h3>Tech</h3>
         </div>
       </a>
 
-      <a href="productos.html?categoria=Miscellaneous">
+      <a href="?categoria=Miscellaneous" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/others.webp" alt="Accesorios" />
           <h3>Otros</h3>
         </div>
       </a>
+    </section>
+
+    <!-- Productos -->
+    <section class="productos" id="productos">
+      <h1 id="productoCategoriaTitulo">Productos de la Categoría</h1>
+      <div id="productos-container" class="productos-container"></div>
+    </section>
+
+    <!-- Sección de Login -->
+    <section class="login" id="login" style="display: none">
+      <h1>Iniciar Sesión</h1>
+      <form id="loginForm">
+        <label for="emailLogin">Email:</label>
+        <input
+          type="email"
+          id="emailLogin"
+          name="email"
+          placeholder="Ingresa tu email"
+          required
+        />
+        <label for="passwordLogin">Contraseña:</label>
+        <input
+          type="password"
+          id="passwordLogin"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+          required
+        />
+        <button type="submit">Iniciar sesión</button>
+        <p id="loginError" style="color: red; display: none">
+          Email o contraseña incorrectos.
+        </p>
+      </form>
+      <button id="closeLogin">Cerrar</button>
+    </section>
+
+    <!-- Sección de registro -->
+    <section id="register" style="display: none">
+      <div class="register-container">
+        <h2>Registro</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="emailRegister">Correo electrónico</label>
+            <input type="email" id="emailRegister" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="passwordRegister">Contraseña</label>
+            <input
+              type="password"
+              id="passwordRegister"
+              name="password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirmPasswordRegister">Confirmar Contraseña</label>
+            <input
+              type="password"
+              id="confirmPasswordRegister"
+              name="confirmPassword"
+              required
+            />
+          </div>
+          <div id="registerError" style="color: red; display: none">
+            <p>Las contraseñas no coinciden. Por favor, inténtalo de nuevo.</p>
+          </div>
+          <button type="submit" class="btn-submit">Registrarse</button>
+          <button id="closeRegister" class="close-register-btn">Cerrar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Sección del Carrito -->
+    <section class="carrito" id="carrito" style="display: none">
+      <div class="carrito-contenedor">
+        <h2>Tu Carrito</h2>
+        <div id="carritoProductos" class="carrito-productos">
+          <!-- Aquí se añadirán los productos del carrito dinámicamente -->
+        </div>
+        <div class="carrito-total">
+          <p><span id="carritoTotal"></span></p>
+          <button id="vaciarCarrito" class="btn-vaciar">Vaciar Carrito</button>
+          <button id="procederPago" class="btn-pago">Proceder al Pago</button>
+        </div>
+        <button id="cerrarCarrito" class="btn-cerrar">X</button>
+      </div>
     </section>
 
     <!-- Sección "Síguenos" -->

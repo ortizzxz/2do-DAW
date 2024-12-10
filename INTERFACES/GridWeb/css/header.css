@@ -72,6 +72,7 @@ nav ul li a:hover {
 @media screen and (max-width: 480px) {
   .header {
     padding: 0.5rem; /* Reducir aún más el padding en pantallas más pequeñas */
+    display: block;
   }
 
   .header .logo a {
@@ -86,4 +87,5 @@ nav ul li a:hover {
   nav {
     gap: 0.5rem; /* Ajustar el espacio entre enlaces */
   }
+  
 }

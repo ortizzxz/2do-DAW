@@ -1,0 +1,129 @@
+@import './variables.css';
+
+/* Estilo del formulario de registro */
+#register {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+  }
+  
+  #register form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #register label {
+    margin: 5px 0;
+  }
+  
+  #register input {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #register button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #closeRegister{
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;   
+  }
+  
+  #register button:hover {
+    background-color: #45a049;
+  }
+  
+  #register #closeRegister {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #register #closeRegister:hover {
+    background-color: #e53935;
+  }
+  
+
+/* Estilo del formulario de login */
+#login {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+  }
+  
+  #login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #login label {
+    margin: 5px 0;
+  }
+  
+  #login input {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #login button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #login button:hover {
+    background-color: #45a049;
+  }
+  
+  #login #closeLogin {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #login #closeLogin:hover {
+    background-color: #e53935;
+  }
+  

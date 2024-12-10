@@ -38,3 +38,10 @@
   font-weight: 400;
   text-align: center;
 }
+
+/* Para tabletas (max-width: 768px) */
+@media (max-width: 768px) {
+  .categorias {
+    padding: 1rem;
+  }
+}
