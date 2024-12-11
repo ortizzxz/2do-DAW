@@ -129,8 +129,7 @@ class UsuarioController
     private function sendPasswordResetEmail($user)
     {
         if (!isset($user['id'], $user['email'], $user['usuario'])) {
-            echo 'error';
-            return;
+            $this->pages->render("auth/error");
         }
 
         $token = bin2hex(random_bytes(32));
@@ -148,7 +147,7 @@ class UsuarioController
 
         $headers = "MIME-Version: 1.0\r\nContent-type:text/html;charset=UTF-8\r\nFrom: noreply@tudominio.com\r\n";
         if (!mail($user['email'], "Cambio de contraseña requerido", $message, $headers)) {
-            echo 'error';
+            $this->pages->render("auth/error");
         }
     }
 
