@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/siguenos.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/productos.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/carrito.css" />
 
@@ -56,6 +57,22 @@
       <h1>Bienvenido a Ortiz&Co</h1>
       <p>Encuentra productos exclusivos para ti</p>
     </section>
+
+    <!-- Modal de Producto -->
+    <!-- Modal de detalles del producto -->
+<div id="productoModal" style="display: none;">
+  <div id="productoModalContent">
+    <span id="cerrarProductoModal" class="cerrar">&times;</span>
+    <div id="productoModalInfo">
+      <img id="productoModalImagen" src="" alt="" />
+      <h2 id="productoModalTitulo"></h2>
+      <p id="productoModalDescripcion"></p>
+      <p id="productoModalPrecio"></p>
+      <button id="productoModalCarritoBtn">Añadir al carrito</button>
+    </div>
+  </div>
+</div>
+
 
     <!-- Categorías -->
     <section class="categorias" id="categorias">
