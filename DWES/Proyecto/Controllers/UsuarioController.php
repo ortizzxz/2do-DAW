@@ -134,7 +134,7 @@ class UsuarioController
 
         $token = bin2hex(random_bytes(32));
         $this->service->savePasswordResetToken($user['id'], $token);
-
+        
         $resetLink = BASE_URL . "?controller=Usuario&action=resetPassword&token=" . $token;
         $message = "
             <html>
