@@ -16,9 +16,9 @@
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 400px;
+    width: 50%;
     max-width: 90%;
-    margin: 10rem auto;
+    margin: 1rem auto;
   }
   
   #productoModal .cerrar {
@@ -54,12 +54,18 @@
     margin-bottom: 20px;
   }
   
-  #productoModalCarritoBtn {
+  #productoModalCarritoBtn, #productoModalCerrarBtn {
     padding: 10px 20px;
-    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  #productoModalCarritoBtn{
+    background-color: #28a745;
+  }
+  #productoModalCerrarBtn{
+    background-color:red;
   }
   

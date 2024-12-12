@@ -10,17 +10,19 @@ window.onload = () => {
   const carritoLink = document.getElementById('carritoLink');
   const carritoCount = document.getElementById('carritoCount');
   const carritoModal = document.getElementById('carrito');
+  const productoModal = document.getElementById('productoModal');
   const carritoProductos = document.getElementById('carritoProductos');
   const carritoTotal = document.getElementById('carritoTotal');
   const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
+  const productoModalCerrarBtn = document.getElementById('productoModalCerrarBtn');
   const procederPagoBtn = document.getElementById('procederPago');
   const cerrarCarritoBtn = document.getElementById('cerrarCarrito');
   const API_URL = "https://api.escuelajs.co/api/v1/products";
-  const LIMIT = 20; // Limitar a 20 productos por cada carga
+  const LIMIT = 10; // Limitar a 20 productos por cada carga
   let offset = 0; // Para saber qué productos ya hemos cargado
   let loading = false; // Para evitar llamadas duplicadas mientras cargamos
   let productosCargados = []; // Array para almacenar los IDs de los productos cargados
-  let categoria = null; // Variable para almacenar la categoría seleccionada
+  let categoriaProducto = null; // Variable para almacenar la categoría seleccionada
 
 
   // Recuperar carrito del localStorage
@@ -51,7 +53,11 @@ window.onload = () => {
     // Agregar un nuevo evento de delegación
     carritoProductos.addEventListener('click', eliminarProductoHandler);
   };
-  
+
+  productoModalCerrarBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    productoModal.style.display = 'none';
+  });
 
   function eliminarProductoHandler(e) {
     if (e.target.classList.contains('btn-eliminar')) {
@@ -96,6 +102,14 @@ window.onload = () => {
 
   // Función para añadir un producto al carrito
   const anadirAlCarrito = (producto) => {
+    const sesionActiva = JSON.parse(localStorage.getItem('sesionActiva'));
+
+    // Verificar si hay sesión activa
+    if (!sesionActiva) {
+      // Si no hay sesión activa, mostrar un mensaje o redirigir a la página de login
+      alert('Por favor, inicia sesión para añadir productos al carrito.');
+      return; // Detener la ejecución de la función
+    }
     const productoExistente = carrito.find(item => item.id === producto.id);
     if (productoExistente) {
       productoExistente.cantidad += 1;
@@ -107,143 +121,150 @@ window.onload = () => {
   };
 
   // Función para obtener los productos
-  const fetchProductos = async (categoriaSeleccionada = null) => {
+  const fetchProductos = async (categoriaSeleccionada) => {
     if (loading) return;
     loading = true;
     try {
-      const response = await fetch(`${API_URL}?_limit=${LIMIT}&_start=${offset}${categoriaSeleccionada ? `&category=${categoriaSeleccionada}` : ''}`);
+      const response = await fetch(`${API_URL}?offset=${offset}&limit=${LIMIT}${categoriaSeleccionada ? `&categoryId=${categoriaSeleccionada}` : ''}`);
       const productos = await response.json();
-
       const productosNuevos = productos.filter(producto => !productosCargados.includes(producto.id));
-
       if (productosNuevos.length > 0) {
-        renderProductos(productosNuevos, true);
+        renderProductos(productosNuevos, true); // Usa true para append
         productosNuevos.forEach(producto => productosCargados.push(producto.id));
         offset += LIMIT;
       } else {
-        // No hay más productos para cargar
         window.onscroll = null; // Desactivar el scroll infinito
       }
-
-      loading = false;
     } catch (error) {
       console.error("Error al obtener los productos:", error);
       productosContainer.innerHTML += "<p>Hubo un error cargando los productos. Inténtalo más tarde.</p>";
+    } finally {
       loading = false;
     }
   };
 
+
+
   // Función para mostrar los detalles del producto en el modal
-const mostrarDetallesProducto = (producto) => {
-  // Rellenar el modal con la información del producto
-  document.getElementById('productoModalTitulo').textContent = producto.title;
-  document.getElementById('productoModalDescripcion').textContent = producto.description || 'No hay descripción disponible';
-  document.getElementById('productoModalPrecio').textContent = `$${producto.price.toFixed(2)}`;
+  const mostrarDetallesProducto = (producto) => {
+    // Rellenar el modal con la información del producto
+    document.getElementById('productoModalTitulo').textContent = producto.title;
+    document.getElementById('productoModalDescripcion').textContent = producto.description || 'No hay descripción disponible';
+    document.getElementById('productoModalPrecio').textContent = `$${producto.price.toFixed(2)}`;
 
-  // Mostrar el modal
-  document.getElementById('productoModal').style.display = 'block';
+    // Mostrar el modal
+    document.getElementById('productoModal').style.display = 'block';
 
-  // Añadir la funcionalidad al botón de añadir al carrito
-  document.getElementById('productoModalCarritoBtn').onclick = () => {
-    anadirAlCarrito(producto);
-    document.getElementById('productoModal').style.display = 'none';  // Cerrar el modal después de añadir al carrito
-    renderCarrito();
+    // Añadir la funcionalidad al botón de añadir al carrito
+    document.getElementById('productoModalCarritoBtn').onclick = () => {
+      anadirAlCarrito(producto);
+      document.getElementById('productoModal').style.display = 'none';  // Cerrar el modal después de añadir al carrito
+      renderCarrito();
+    };
   };
-};
 
-const renderProductos = (productos) => {
-  console.log(productos);
-  productosContainer.innerHTML = productos.map(producto => `
-    <div class="producto" data-id="${producto.id}">
-      <div class="producto-imagenes">
-        <div class="producto-carrusel">
-          <button class="flecha flecha-izquierda">&#60;</button>
-          <div class="producto-carrusel-imagenes">
-            ${producto.images && producto.images.length > 0
-        ? producto.images.map((image, index) => `
-                  <img src="${image}" alt="${producto.title}" class="producto-imagen" data-index="${index}" onerror="defaultImage(event)" />
-                `).join('') 
-        : '<p>No hay imágenes disponibles</p>'
-      }
+
+  const renderProductos = (productos, append = false) => {
+    console.log(productos);
+    const productosHTML = productos.map(producto => `
+      <div class="producto" data-id="${producto.id}">
+        <div class="producto-imagenes">
+          <div class="producto-carrusel">
+            <button class="flecha flecha-izquierda">&#60;</button>
+            <div class="producto-carrusel-imagenes">
+              ${producto.images && producto.images.length > 0 ? producto.images.map((image, index) => `
+                <img src="${image}" alt="${producto.title}" class="producto-imagen" data-index="${index}" onerror="defaultImage(event)" />
+              `).join('') : '<p>No hay imágenes disponibles</p>'}
+            </div>
+            <button class="flecha flecha-derecha">&#62;</button>
           </div>
-          <button class="flecha flecha-derecha">&#62;</button>
         </div>
+        <h3>${producto.title}</h3>
+        <p>$${producto.price.toFixed(2)}</p>
+        <button class="btn-comprar" data-id="${producto.id}" data-title="${producto.title}" data-price="${producto.price}" data-images="${producto.images}">Añadir al Carrito</button>
+        <button class="btn-descripcion" data-id="${producto.id}" data-title="${producto.title}" data-price="${producto.price}" data-images="${producto.images}">Mirar Descripcion</button>
       </div>
-      <h3>${producto.title}</h3>
-      <p>$${producto.price.toFixed(2)}</p>
-      <button class="btn-comprar" data-id="${producto.id}" data-title="${producto.title}" data-price="${producto.price}" data-images="${producto.images}">Añadir al Carrito</button>
-    </div>
-  `).join('');
+    `).join('');
 
-   // Agregar el evento de clic para mostrar detalles del producto en el modal
-   const productosElementos = document.querySelectorAll('.producto');
-   productosElementos.forEach(productoElemento => {
-     productoElemento.addEventListener('click', () => {
-       const productoId = productoElemento.dataset.id;
-       const productoSeleccionado = productos.find(p => p.id == productoId);
-       if (productoSeleccionado) {
-         mostrarDetallesProducto(productoSeleccionado);
-       }
-     });
-   });
+    if (append) {
+      productosContainer.insertAdjacentHTML('beforeend', productosHTML);
+    } else {
+      productosContainer.innerHTML = productosHTML;
+    }
 
-   // Agregar eventos de clic en las flechas del carrusel
-   const carruseles = document.querySelectorAll('.producto-carrusel');
-   carruseles.forEach(carrusel => {
-     const flechaIzquierda = carrusel.querySelector('.flecha-izquierda');
-     const flechaDerecha = carrusel.querySelector('.flecha-derecha');
-     const imagenes = carrusel.querySelector('.producto-carrusel-imagenes');
-     const imagenesArray = Array.from(imagenes.children);
+    // Agregar eventos de clic en las flechas del carrusel
+    const carruseles = document.querySelectorAll('.producto-carrusel');
+    carruseles.forEach(carrusel => {
+      const flechaIzquierda = carrusel.querySelector('.flecha-izquierda');
+      const flechaDerecha = carrusel.querySelector('.flecha-derecha');
+      const imagenes = carrusel.querySelector('.producto-carrusel-imagenes');
+      const imagenesArray = Array.from(imagenes.children);
 
-     let indiceActual = 0;
+      let indiceActual = 0;
 
-     const cambiarImagen = (nuevoIndice) => {
-       imagenesArray.forEach((img, index) => img.style.display = 'none');
-       imagenesArray[nuevoIndice].style.display = 'block';
-     };
+      const cambiarImagen = (nuevoIndice) => {
+        imagenesArray.forEach((img, index) => img.style.display = 'none');
+        imagenesArray[nuevoIndice].style.display = 'block';
+      };
 
-     cambiarImagen(indiceActual);
+      cambiarImagen(indiceActual);
 
-     flechaIzquierda.addEventListener('click', (event) => {
-       event.stopPropagation(); // Detener la propagación del evento
-       indiceActual = (indiceActual === 0) ? imagenesArray.length - 1 : indiceActual - 1;
-       cambiarImagen(indiceActual);
-     });
+      flechaIzquierda.addEventListener('click', (event) => {
+        event.stopPropagation(); // Detener la propagación del evento
+        indiceActual = (indiceActual === 0) ? imagenesArray.length - 1 : indiceActual - 1;
+        cambiarImagen(indiceActual);
+      });
 
-     flechaDerecha.addEventListener('click', (event) => {
-       event.stopPropagation(); // Detener la propagación del evento
-       indiceActual = (indiceActual === imagenesArray.length - 1) ? 0 : indiceActual + 1;
-       cambiarImagen(indiceActual);
-     });
-   });
+      flechaDerecha.addEventListener('click', (event) => {
+        event.stopPropagation(); // Detener la propagación del evento
+        indiceActual = (indiceActual === imagenesArray.length - 1) ? 0 : indiceActual + 1;
+        cambiarImagen(indiceActual);
+      });
+    });
 
-   // Manejar clics en el botón de "Añadir al Carrito"
-   const botonesAñadirCarrito = document.querySelectorAll('.btn-comprar');
-   botonesAñadirCarrito.forEach(boton => {
-     boton.addEventListener('click', (event) => {
-       const producto = {
-         id: event.target.dataset.id,
-         title: event.target.dataset.title,
-         price: parseFloat(event.target.dataset.price),
-         images: event.target.dataset.images,
-       };
-       anadirAlCarrito(producto);
-       renderCarrito();
-     });
-   });
-};
+    // Manejar clics en el botón de "Añadir al Carrito"
+    const botonesDescripcionCarrito = document.querySelectorAll('.btn-comprar');
+    botonesDescripcionCarrito.forEach(boton => {
+      boton.addEventListener('click', (event) => {
+        const producto = {
+          id: event.target.dataset.id,
+          title: event.target.dataset.title,
+          price: parseFloat(event.target.dataset.price),
+          images: event.target.dataset.images,
+        };
+        anadirAlCarrito(producto);
+        renderCarrito();
+      });
+    });
+  };
+
+  const botonesAñadirCarrito = document.querySelectorAll('.btn-descripcion');
+  botonesAñadirCarrito.forEach(boton => {
+    boton.addEventListener('click', (event) => {
+      const productoId = productoElemento.dataset.id;
+      const productoSeleccionado = productos.find(p => p.id == productoId);
+      if (productoSeleccionado) {
+        mostrarDetallesProducto(productoSeleccionado);
+      }
+    });
+  });
 
 
-
-  // Cargar los productos al cargar la página
-  fetchProductos();
 
   // Función de scroll infinito
-  window.onscroll = () => {
-    if ((window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) && !loading) {
-      fetchProductos(categoria);
+  const handleScroll = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5 && !loading) {
+      if (categoriaProducto) {
+        fetchProductos(categoriaProducto);
+      } else {
+        fetchProductos();
+      }
     }
   };
+
+  window.addEventListener('scroll', handleScroll);
+
 
 
   // Filtro por categoría
@@ -259,7 +280,7 @@ const renderProductos = (productos) => {
       productosContainer.innerHTML = '';
       productosCargados = [];
       offset = 0;
-      categoria = categoriaSeleccionada; // Actualizar la variable global
+      categoriaProducto = categoriaSeleccionada; // Actualizar la variable global
       fetchProductos(categoriaSeleccionada);
     });
   });
@@ -320,85 +341,86 @@ const renderProductos = (productos) => {
   const registerError = document.getElementById('registerError');
   const API_BASE_URL = 'https://api.escuelajs.co/api/v1/users';
 
-  // func para registrar un usuario
-  const registrarUsuario = async (email, password, name) => {
-    try {
-      // Verificar si el email esta registrado // BUG: LA API SIEMPRE DEVUELVE FALSE
-      const emailCheckResponse = await fetch(`${API_BASE_URL}/is-available`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
+  // Función para registrar un usuario
+  const registrarUsuario = (email, password, name) => {
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const existeUsuario = usuarios.some(usuario => usuario.email === email);
 
-      const emailCheck = await emailCheckResponse.json();
-
-      if (!emailCheck.isAvailable) {
-        registerError.style.display = 'block';
-        registerError.textContent = 'Este email ya está registrado.';
-        return false;
-      }
-
-      // Crear el usuario
-      const response = await fetch(API_BASE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          avatar: 'https://picsum.photos/800', // Imagen genérica
-        })
-      });
-
-      if (response.ok) {
-        alert('¡Usuario registrado con éxito!');
-        registerError.style.display = 'none';
-        return true;
-      } else {
-        throw new Error('Error al registrar el usuario.');
-      }
-    } catch (error) {
-      console.error(error);
-      registerError.style.display = 'block';
-      registerError.textContent = 'Hubo un error al registrar el usuario.';
+    if (existeUsuario) {
+      alert('El correo ya está registrado.');
       return false;
     }
+
+    const nuevoUsuario = { id: Date.now(), email, password, name };
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    alert('¡Usuario registrado con éxito!');
+    return true;
   };
 
   // Función para iniciar sesión
-  const iniciarSesion = async (email, password) => {
-    try {
-      // Obtener todos los usuarios
-      const response = await fetch(API_BASE_URL);
-      const usuarios = await response.json();
+  const iniciarSesion = (email, password) => {
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const usuario = usuarios.find(usuario => usuario.email === email);
 
-      // Buscar el usuario por email
-      const usuario = usuarios.find(user => user.email === email);
-
-      if (!usuario) {
-        loginError.style.display = 'block';
-        loginError.textContent = 'El usuario no existe.';
-        return false;
-      }
-
-      if (usuario.password !== password) {
-        loginError.style.display = 'block';
-        loginError.textContent = 'Contraseña incorrecta.';
-        return false;
-      }
-
-      // Guardar sesión activa
-      localStorage.setItem('sesionActiva', JSON.stringify({ id: usuario.id, email: usuario.email, name: usuario.name }));
-      loginError.style.display = 'none';
-      alert(`¡Bienvenido, ${usuario.name}!`);
-      return true;
-    } catch (error) {
-      console.error(error);
-      loginError.style.display = 'block';
-      loginError.textContent = 'Hubo un error al iniciar sesión.';
+    if (!usuario) {
+      alert('El usuario no existe.');
       return false;
     }
+
+    if (usuario.password !== password) {
+      alert('Contraseña incorrecta.');
+      return false;
+    }
+
+    // Guardar sesión activa
+    localStorage.setItem('sesionActiva', JSON.stringify({ id: usuario.id, email: usuario.email, name: usuario.name }));
+    alert(`¡Bienvenido, ${usuario.name}!`);
+    return true;
   };
+
+
+  // Cerrar sesión
+  const cerrarSesion = () => {
+    localStorage.removeItem('sesionActiva');
+    alert('Sesión cerrada.');
+  };
+
+  // Manejar el registro
+  document.getElementById('registerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('passwordRegister').value;
+    const confirmPassword = document.getElementById('confirmPasswordRegister').value;
+    const name = 'Usuario'; // Puedes agregar un campo de nombre en el formulario si lo deseas.
+
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    const registrado = registrarUsuario(email, password, name);
+    if (registrado) document.getElementById('registerForm').reset();
+  });
+
+  // Manejar el inicio de sesión
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('emailLogin').value;
+    const password = document.getElementById('passwordLogin').value;
+
+    const logueado = iniciarSesion(email, password);
+    if (logueado) document.getElementById('loginForm').reset();
+  });
+
+  // Verificar sesión activa al cargar la página
+  verificarSesionActiva();
+
+  // Botón de cerrar sesión (si existe en tu HTML)
+  document.getElementById('cerrarSesion')?.addEventListener('click', cerrarSesion);
+
 
   // Manejar el registro
   registerForm.addEventListener('submit', async (e) => {
@@ -425,7 +447,7 @@ const renderProductos = (productos) => {
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
 
-    const logueado = await iniciarSesion(email, password);
+    const logueado = iniciarSesion(email, password);
     if (logueado) loginForm.reset();
   });
 
@@ -435,7 +457,6 @@ const renderProductos = (productos) => {
 
     if (sesion) {
       alert(`¡Bienvenido nuevamente, ${sesion.name}!`);
-      // Aquí podrías actualizar el DOM para mostrar el estado "logueado".
     }
   };
 
@@ -443,11 +464,10 @@ const renderProductos = (productos) => {
   document.getElementById('cerrarSesion')?.addEventListener('click', () => {
     localStorage.removeItem('sesionActiva');
     alert('Sesión cerrada.');
-    // Aquí podrías actualizar el DOM para mostrar el estado "deslogueado".
   });
 
   verificarSesionActiva();
-
+  window.addEventListener('scroll', handleScroll);
   // Actualizar el contador del carrito
   actualizarCarritoCount();
 };

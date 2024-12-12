@@ -62,12 +62,11 @@
     <!-- Modal de detalles del producto -->
 <div id="productoModal" style="display: none;">
   <div id="productoModalContent">
-    <span id="cerrarProductoModal" class="cerrar">&times;</span>
     <div id="productoModalInfo">
-      <img id="productoModalImagen" src="" alt="" />
       <h2 id="productoModalTitulo"></h2>
       <p id="productoModalDescripcion"></p>
       <p id="productoModalPrecio"></p>
+      <button id="productoModalCerrarBtn">Cerrar Descripción</button>
       <button id="productoModalCarritoBtn">Añadir al carrito</button>
     </div>
   </div>
@@ -76,28 +75,28 @@
 
     <!-- Categorías -->
     <section class="categorias" id="categorias">
-      <a href="?categoria=Clothes" class="link-categorias">
+      <a href="?categoria=1" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/ropa.jpg" alt="Ropa" />
           <h3>Ropa</h3>
         </div>
       </a>
 
-      <a href="?categoria=Shoes" class="link-categorias">
+      <a href="?categoria=4" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/shoes.png" alt="Zapatos" />
           <h3>Zapatos</h3>
         </div>
       </a>
 
-      <a href="?categoria=Electronics" class="link-categorias">
+      <a href="?categoria=2" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/tech.avif" alt="Electronics" />
           <h3>Tech</h3>
         </div>
       </a>
 
-      <a href="?categoria=Miscellaneous" class="link-categorias">
+      <a href="?categoria=5" class="link-categorias">
         <div class="categoria">
           <img src="./assets/imgs/others.webp" alt="Accesorios" />
           <h3>Otros</h3>
@@ -146,7 +145,7 @@
         <form id="registerForm">
           <div class="form-group">
             <label for="emailRegister">Correo electrónico</label>
-            <input type="email" id="emailRegister" name="email" required />
+            <input type="email" id="emailRegister" name="email" required placeholder="example@example.com"/>
           </div>
           <div class="form-group">
             <label for="passwordRegister">Contraseña</label>
@@ -154,6 +153,7 @@
               type="password"
               id="passwordRegister"
               name="password"
+              placeholder="Secure password..."
               required
             />
           </div>
@@ -163,6 +163,7 @@
               type="password"
               id="confirmPasswordRegister"
               name="confirmPassword"
+              placeholder="Repeat password"
               required
             />
           </div>

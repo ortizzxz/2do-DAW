@@ -108,8 +108,9 @@
 }
 
 /* Botón de compra */
-.btn-comprar {
+.btn-comprar, .btn-descripcion {
   margin-top: 1rem;
+  width: 40%;
   background-color: var(--accent-color);
   color: var(--primary-color);
   padding: 0.5rem 1rem;
@@ -119,7 +120,7 @@
   transition: background-color 0.3s;
 }
 
-.btn-comprar:hover {
+.btn-comprar:hover, .btn-descripcion:hover {
   background-color: #444;
 }
 
@@ -169,8 +170,8 @@
   .producto-imagenes {
     height: 260px; /* Ajustar la altura de la imagen en dispositivos más pequeños */
   }
-
-  .btn-comprar {
+  
+  .btn-comprar, .btn-descripcion {
     padding: 1rem
   }
 }
