@@ -1,8 +1,8 @@
 @import './variables.css';
 
 footer {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   padding: 1rem;
   text-align: center;
 }
@@ -17,26 +17,31 @@ footer .footer-links ul {
 }
 
 footer .footer-links ul li a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   font-size: large;
   transition: color 0.3s;
+  
 }
 
 footer .footer-links ul li a:hover {
-  color: var(--accent-color);
+  color: var(--third-color);
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 0.2rem;
 }
 
 .iconos-redes i{
-  color: black;
   font-size: x-large;
   border-radius: 0.3rem;
   padding: 1rem;
+  color: var(--primary-color);
+
 }
 
 .iconos-redes i:hover{
-  background-color: burlywood ;
+  background-color: var(--third-color) ;
 }
 
 /* Media Queries for Mobile Devices */
